@@ -10,7 +10,7 @@
 
 ## Use cases
 
-![01](Iteration I diagrams/01.png)
+![01](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/01.png?raw=true)
 
 | Use case name                   | Cafes creation use case                                      |
 | ------------------------------- | ------------------------------------------------------------ |
@@ -26,7 +26,7 @@
 | **Non-behavioral requirements** | Performance to a website response of the whole system is limited to three seconds, in this time DB should be updated and frontend must respond. Only user with the rights of admin could create cafeteriums. |
 | **Source**                      | Such process gives possibility to make app scalable in a distant future(United Interviews, Scalability) |
 
-![02](Iteration I diagrams/Create cafe.png)
+![02](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20cafe.png?raw=true)
 
 | Use case name                   | Manager creation use case                                    |
 | ------------------------------- | ------------------------------------------------------------ |
@@ -42,7 +42,7 @@
 | **Non-behavioral requirements** | Performance to a website response of the whole system is limited to three seconds, in this time DB should be updated and frontend must respond. Time of email sending is limited up to ten minutes(according to the Sofia interview). Password must be secure(created using pseudo-random generators), and should be stored in DB using hashing with salt, to prevent major breaking into the system. |
 | **Source**                      | United Interviews, Who updates dishes                        |
 
-![03](Iteration I diagrams/Create manager.png)
+![03](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20manager.png?raw=true)
 
 | Use case name                   | Cafes change/delete use case                                 |
 | ------------------------------- | ------------------------------------------------------------ |
@@ -56,7 +56,7 @@
 | **Non-behavioral requirements** | Performance to a website response of the whole system is limited to three seconds, in this time DB should be updated and frontend must respond. Only user with the rights of admin could change/delete cafeteriums. |
 | **Source**                      | Such process gives possibility to make app scalable in a distant future(United Interviews, Scalability) |
 
-![04](Iteration I diagrams/Change and delete cafe.png)
+![04](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Change%20and%20delete%20cafe.png?raw=true)
 
 
 
@@ -72,7 +72,7 @@
 | **Priority**          | Top priority, because the other way there admins couldn't change the errors about their cafes. |
 | **Source**            | Interviews, User making order                                |
 
-![05](Iteration I diagrams/Make New Order.jpg)
+![05](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Make%20New%20Order.jpg?raw=true)
 
 
 
@@ -89,7 +89,7 @@
 | **Assumptions**       | Customers will see the time when their order is ready with respect to time every dish takes |
 | **Source**            | United Interviews, Time of order is ready                    |
 
-![06](Iteration I diagrams/Set default time to cook.png)
+![06](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Set%20default%20time%20to%20cook.png?raw=true)
 
 
 
@@ -104,7 +104,7 @@
 | **Assumptions**       | A manager has description and the dish picture ready         |
 | **Source**            | United Interviews, Who updates dishes                        |
 
-![07](Iteration I diagrams/Create dish.png)
+![07](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20dish.png?raw=true)
 
 
 
@@ -118,7 +118,7 @@
 | **Priority**          | High                                                         |
 | **Source**            | United Interviews, Predefined menus for managers             |
 
-![08](Iteration I diagrams/Create menu.png)
+![08](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20menu.png?raw=true)
 
 
 
@@ -133,7 +133,7 @@
 | **Assumptions**       | If all weekdays aren't filled with templates, the app won't work since 00:00 until one of the menus is selected |
 | **Source**            | United Interviews, Predefined menus for managers             |
 
-![09](Iteration I diagrams/Select menu.png)
+![09](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Select%20menu.png?raw=true)
 
 
 
@@ -148,7 +148,7 @@
 | **Alternative flows and exceptions** | 24 hours open is possible                                    |
 | **Source**                           | United Interviews, Time of order is ready                    |
 
-![10](Iteration I diagrams/Set working hours.png)
+![10](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Set%20working%20hours.png?raw=true)
 
 | Use case name                        | Open cafe                                                    |
 | ------------------------------------ | ------------------------------------------------------------ |
@@ -161,7 +161,7 @@
 | **Alternative flows and exceptions** | 24 hours open is possible                                    |
 | **Source**                           | United Interviews, Who updates dishes                        |
 
-![01](Iteration I diagrams/Open cafe.png)
+![11](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Open%20cafe.png)
 
 
 
@@ -175,4 +175,4 @@
 | **Priority**          | High                                                         |
 | **Source**            | Interviews, User making complaint                            |
 
-![11](Iteration I diagrams/Complaint Use Case.png)
+![12](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Complaint%20Use%20Case.png?raw=true)
