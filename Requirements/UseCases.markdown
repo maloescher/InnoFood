@@ -46,7 +46,7 @@
 
 | Use case name                   | Cafes change/delete use case                                 |
 | ------------------------------- | ------------------------------------------------------------ |
-| **Unique use case ID**          | 02                                                           |
+| **Unique use case ID**          | 03                                                           |
 | **Primary actor(s)**            | Administrator of the canteens                                |
 | **Secondary actor(s)**          | Managers, Users                                              |
 | **Brief description**           | Admin change or delete cafe/canteen, he is free to change everything he wants, or delete cafe |
@@ -65,7 +65,7 @@
 
 | Use case name          | Create order                                                 |
 | ---------------------- | :----------------------------------------------------------- |
-| **Unique use case ID** | 03                                                           |
+| **Unique use case ID** | 04                                                           |
 | **Primary actor(s)**   | User                                                         |
 | **Brief description**  | User makes an order through the application                  |
 | **Preconditions**      | The meals/dishes to be ordered are available                 |
@@ -80,15 +80,25 @@
 
 | Use case name          | Delete order                                                 |
 | ---------------------- | ------------------------------------------------------------ |
-| **Unique use case ID** | 04                                                           |
+| **Unique use case ID** | 05                                                           |
 | **Primary actor(s)**   | User                                                         |
-| **Brief description**  | Default time to cook a standard dish                         |
-| **Preconditions**      | No default time is set. Or the default time is about to be changed. |
-| **Flow of events**     | Manager sets new or changes default time to cook             |
-| **Postconditions**     | The default time is saved                                    |
-| **Assumptions**        | Customers will see the time when their order is ready with respect to time every dish takes |
+| **Brief description**  | Canceling order by user                                      |
+| **Preconditions**      | Order is created less than 10 minutes ago                    |
+| **Flow of events**     | 1. User selects his order<br />2. User presses delete button |
+| **Postconditions**     | Order is deleted                                             |
 
 ![06](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Set%20default%20time%20to%20cook.png?raw=true)
+
+
+
+| Use case name          | Confirm order                                                |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 06                                                           |
+| **Primary actor(s)**   | Manager                                                      |
+| **Brief description**  | Manager confirms the order created by User                   |
+| **Preconditions**      | Order is created by User                                     |
+| **Flow of events**     | 1. Manager selects the pending order<br />2. Manager presses confirm button |
+| **Postconditions**     | Order is confirmed                                           |
 
 
 
