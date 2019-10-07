@@ -66,10 +66,10 @@
 | Use case name          | Create order                                                 |
 | ---------------------- | :----------------------------------------------------------- |
 | **Unique use case ID** | 03                                                           |
-| **Primary actor(s)**   | Customer                                                     |
-| **Brief description**  | Customer makes an order through the application              |
+| **Primary actor(s)**   | User                                                         |
+| **Brief description**  | User makes an order through the application                  |
 | **Preconditions**      | The meals/dishes to be ordered are available                 |
-| **Flow of events**     | 1. Customer selects the desired option from menu<br />2. User enters his location<br />3. User presses the submit button |
+| **Flow of events**     | 1. User selects the desired option from menu<br />2. User enters his location<br />3. User presses the submit button |
 | **Postconditions**     | Order is completed                                           |
 
 ![05](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Make%20New%20Order.jpg?raw=true)
@@ -78,17 +78,15 @@
 
 
 
-| Use case name          | Set time to cook                                             |
+| Use case name          | Delete order                                                 |
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 04                                                           |
-| **Primary actor(s)**   | Manager                                                      |
+| **Primary actor(s)**   | User                                                         |
 | **Brief description**  | Default time to cook a standard dish                         |
 | **Preconditions**      | No default time is set. Or the default time is about to be changed. |
 | **Flow of events**     | Manager sets new or changes default time to cook             |
 | **Postconditions**     | The default time is saved                                    |
-| **Priority**           | High                                                         |
 | **Assumptions**        | Customers will see the time when their order is ready with respect to time every dish takes |
-| **Source**             | United Interviews, Time of order is ready                    |
 
 ![06](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Set%20default%20time%20to%20cook.png?raw=true)
 
