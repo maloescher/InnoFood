@@ -14,7 +14,7 @@
 
 | Use case name                   | Cafes creation use case                                      |
 | ------------------------------- | ------------------------------------------------------------ |
-| **Unique use case ID**          | CA                                                           |
+| **Unique use case ID**          | 01                                                           |
 | **Primary actor(s)**            | Administrator of the canteens                                |
 | **Secondary actor(s)**          | Managers                                                     |
 | **Brief description**           | Admin creates a new cafe/canteen, and sets up all parameters for it, he also assigns manager to that canteen. |
@@ -30,7 +30,7 @@
 
 | Use case name                   | Manager creation use case                                    |
 | ------------------------------- | ------------------------------------------------------------ |
-| **Unique use case ID**          | CA                                                           |
+| **Unique use case ID**          | 02                                                           |
 | **Primary actor(s)**            | Administrator of the canteens                                |
 | **Secondary actor(s)**          | Managers                                                     |
 | **Brief description**           | Admin creates a new manager of the canteen and sets up all parameters for him. |
@@ -46,6 +46,7 @@
 
 | Use case name                   | Cafes change/delete use case                                 |
 | ------------------------------- | ------------------------------------------------------------ |
+| **Unique use case ID**          | 02                                                           |
 | **Primary actor(s)**            | Administrator of the canteens                                |
 | **Secondary actor(s)**          | Managers, Users                                              |
 | **Brief description**           | Admin change or delete cafe/canteen, he is free to change everything he wants, or delete cafe |
@@ -62,15 +63,14 @@
 
 
 
-| Use case name         | Make Order                                                   |
-| --------------------- | ------------------------------------------------------------ |
-| **Primary actor(s)**  | Customer                                                     |
-| **Brief description** | Customer makes an order through the application              |
-| **Preconditions**     | The meals/dishes to be ordered are available                 |
-| **Flow of events**    | User logs in with account email and password. Goes through the available menu, selects the desired meal and clicks make order button. |
-| **Postconditions**    | Order is completed                                           |
-| **Priority**          | Top priority, because the other way there admins couldn't change the errors about their cafes. |
-| **Source**            | Interviews, User making order                                |
+| Use case name          | Create order                                                 |
+| ---------------------- | :----------------------------------------------------------- |
+| **Unique use case ID** | 03                                                           |
+| **Primary actor(s)**   | Customer                                                     |
+| **Brief description**  | Customer makes an order through the application              |
+| **Preconditions**      | The meals/dishes to be ordered are available                 |
+| **Flow of events**     | 1. Customer selects the desired option from menu<br />2. User enters his location<br />3. User presses the submit button |
+| **Postconditions**     | Order is completed                                           |
 
 ![05](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Make%20New%20Order.jpg?raw=true)
 
@@ -78,45 +78,48 @@
 
 
 
-| Use case name         | Set time to cook                                             |
-| --------------------- | ------------------------------------------------------------ |
-| **Primary actor(s)**  | Manager                                                      |
-| **Brief description** | Default time to cook a standard dish                         |
-| **Preconditions**     | No default time is set. Or the default time is about to be changed. |
-| **Flow of events**    | Manager sets new or changes default time to cook             |
-| **Postconditions**    | The default time is saved                                    |
-| **Priority**          | High                                                         |
-| **Assumptions**       | Customers will see the time when their order is ready with respect to time every dish takes |
-| **Source**            | United Interviews, Time of order is ready                    |
+| Use case name          | Set time to cook                                             |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 04                                                           |
+| **Primary actor(s)**   | Manager                                                      |
+| **Brief description**  | Default time to cook a standard dish                         |
+| **Preconditions**      | No default time is set. Or the default time is about to be changed. |
+| **Flow of events**     | Manager sets new or changes default time to cook             |
+| **Postconditions**     | The default time is saved                                    |
+| **Priority**           | High                                                         |
+| **Assumptions**        | Customers will see the time when their order is ready with respect to time every dish takes |
+| **Source**             | United Interviews, Time of order is ready                    |
 
 ![06](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Set%20default%20time%20to%20cook.png?raw=true)
 
 
 
-| Use case name         | Create dish                                                  |
-| --------------------- | ------------------------------------------------------------ |
-| **Primary actor(s)**  | Manager                                                      |
-| **Brief description** | Manager creates a dish                                       |
-| **Preconditions**     | There's a need to add a dish to menu                         |
-| **Flow of events**    | The form to create a new dish comes with time to cook filled, which is equal to default time. To create a dish, a manager must fill title, description and image. Also, it's possible to set time needed to prepare the dish, if it's different from default. |
-| **Postconditions**    | Time to cook, description, title and image are filled        |
-| **Priority**          | High                                                         |
-| **Assumptions**       | A manager has description and the dish picture ready         |
-| **Source**            | United Interviews, Who updates dishes                        |
+| Use case name          | Create dish                                                  |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 05                                                           |
+| **Primary actor(s)**   | Manager                                                      |
+| **Brief description**  | Manager creates a dish                                       |
+| **Preconditions**      | There's a need to add a dish to menu                         |
+| **Flow of events**     | The form to create a new dish comes with time to cook filled, which is equal to default time. To create a dish, a manager must fill title, description and image. Also, it's possible to set time needed to prepare the dish, if it's different from default. |
+| **Postconditions**     | Time to cook, description, title and image are filled        |
+| **Priority**           | High                                                         |
+| **Assumptions**        | A manager has description and the dish picture ready         |
+| **Source**             | United Interviews, Who updates dishes                        |
 
 ![07](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20dish.png?raw=true)
 
 
 
-| Use case name         | Create menu                                                  |
-| --------------------- | ------------------------------------------------------------ |
-| **Primary actor(s)**  | Manager                                                      |
-| **Brief description** | Creating a menu with a set of dishes                         |
-| **Preconditions**     | The dishes that is to be selected are created and saved      |
-| **Flow of events**    | A manager selects a set of dishes for a menu that is to be available in some days (possibly weekdays). The new menu must be saved with a title. |
-| **Postconditions**    | New menu is created                                          |
-| **Priority**          | High                                                         |
-| **Source**            | United Interviews, Predefined menus for managers             |
+| Use case name          | Create menu                                                  |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 06                                                           |
+| **Primary actor(s)**   | Manager                                                      |
+| **Brief description**  | Creating a menu with a set of dishes                         |
+| **Preconditions**      | The dishes that is to be selected are created and saved      |
+| **Flow of events**     | A manager selects a set of dishes for a menu that is to be available in some days (possibly weekdays). The new menu must be saved with a title. |
+| **Postconditions**     | New menu is created                                          |
+| **Priority**           | High                                                         |
+| **Source**             | United Interviews, Predefined menus for managers             |
 
 ![08](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20menu.png?raw=true)
 
@@ -124,6 +127,7 @@
 
 | Use case name         | Select menu                                                  |
 | --------------------- | ------------------------------------------------------------ |
+|                       |                                                              |
 | **Primary actor(s)**  | Manager                                                      |
 | **Brief description** | A manager sets available menu for each weekday or for a particular date |
 | **Preconditions**     | The menus are created select a menu for every weekday.       |
