@@ -136,6 +136,17 @@
 
 
 
+| Use case name          | Edit dish                                                    |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 05                                                           |
+| **Primary actor(s)**   | Manager                                                      |
+| **Brief description**  | Manager edits an entry in Menu table                         |
+| **Preconditions**      | There are entries in the Menu table                          |
+| **Flow of events**     | 1. Manager opens the Menu table from his side<br />2. Manager presses 'Edit' button<br />3. Pop-up window with the form containing name and price fields appears filled with the current values<br />4. Manager edits values<br />6. Manager submits form<br />7. Database updates |
+| **Postconditions**     | Dish entry is updated                                        |
+
+
+
 | Use case name          | Create menu                                                  |
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 06                                                           |
