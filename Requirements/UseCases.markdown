@@ -12,19 +12,17 @@
 
 ![01](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/01.png?raw=true)
 
-| Use case name                   | Cafes creation use case                                      |
-| ------------------------------- | ------------------------------------------------------------ |
-| **Unique use case ID**          | 01                                                           |
-| **Primary actor(s)**            | Administrator of the canteens                                |
-| **Secondary actor(s)**          | Managers                                                     |
-| **Brief description**           | Admin creates a new cafe/canteen, and sets up all parameters for it, he also assigns manager to that canteen. |
-| **Preconditions**               | Newly built, or cafe not entered at the system, manager, earlier created by admin. |
-| **Flow of events**              | First, administrator enters all the data needed for the cafe, as: Phone number, email, name, address, information about cafe, manager(information about him is automatically displayed when he is chosed). Then he click the create button, and get all data displayed to check, he can approve, or return back to changing, after this step he click approve button, and the response goes to server, cafe wouldn't be seen by users, until manager would "open" it, after he fills all the needed data. |
-| **Postconditions**              | New cafe added to the list of administrator, it is seen to the manager, that is responsible for this cafeterium, as well as for users, if this canteen is open. The cafe data is stationed in DB on backend. |
-| **Priority**                    | Top priority, because the other way there would be no canteens to serve the users. |
-| **Assumptions**                 | If admin would enter data in incorrect format, he would need to reenter it. |
-| **Non-behavioral requirements** | Performance to a website response of the whole system is limited to three seconds, in this time DB should be updated and frontend must respond. Only user with the rights of admin could create cafeteriums. |
-| **Source**                      | Such process gives possibility to make app scalable in a distant future(United Interviews, Scalability) |
+| Use case name          | Cafe Creation                                                |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 01                                                           |
+| **Primary actor(s)**   | Administrator                                                |
+| **Secondary actor(s)** | Managers. <br/>Database.                                     |
+| **Brief description**  | Administrator creates a new cafe, and sets up all parameters for it, Administrator also assigns manager to that canteen. |
+| **Preconditions**      | Newly built, or cafe not entered at the system, manager, earlier created by admin. |
+| **Flow of events**     | 1. Administrator enter the administrator panel.<br/>2. Administrator choose the option "Create new cafe". <br/>2. Administrator fill the "new cafe" form. <br/>3. Administrator click on "save data" bottom.<br/>4. A new register is created on the data base. <br/>5. Administrator receive a confirmation message. |
+| **Postconditions**     | A New cafe has been added to the database and is visible from the administrator panel.<br/>A managers has been assigned to the Cafe |
+| **Alternative Flow **  | Administrator does not receive confirmation message (error message). <br/>Administraror must contact IT department. |
+| **Assumptions**        | The Administrator is logged in the system and has the needed permision to perform this action. |
 
 ![02](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20cafe.png?raw=true)
 
@@ -44,10 +42,24 @@
 
 ![03](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20manager.png?raw=true)
 
-| Use case name                   | Cafes change/delete use case                                 |
+| Use case name                   | Edit Cafe                                                    |
+| ------------------------------- | ------------------------------------------------------------ |
+| **Unique use case ID**          | 03                                                           |
+| **Primary actor(s)**            | Administrator                                                |
+| **Secondary actor(s)**          | Database                                                     |
+| **Brief description**           | Administrator wants to update information about a cafe.      |
+| **Preconditions**               | The cafe already exist. <br/>The Administrator has the right for making the changes. |
+| **Flow of events**              | 1. Administator choose enter administration panel<br/>2. Administator click on the edit buttom of the cafe to edit <br/>3. Administrator makes the modifications needed<br/>4. Administrator click on "Save changes" buttom.<br/>5. System display a confirmation message.<br/>6. System perform update action in the DB.<br/>7. System display "Sucessfull message". |
+| **Alternative Flow **           | 1. Administrator press cancel on the confirmation message.<br/>2. System must display again the form. <br/>1. Administrator does not receive confirmation message (error message). <br/>2. Administraror must contact IT department. |
+| **Postconditions**              | The information of the cafe has been updated.                |
+| **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
+
+![04](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Change%20and%20delete%20cafe.png?raw=true)
+
+| Use case name                   | Delete cafe use case                                         |
 | ------------------------------- | ------------------------------------------------------------ |
 | **Unique use case ID**          | 02                                                           |
-| **Primary actor(s)**            | Administrator of the canteens                                |
+| **Primary actor(s)**            | Administrator                                                |
 | **Secondary actor(s)**          | Managers, Users                                              |
 | **Brief description**           | Admin change or delete cafe/canteen, he is free to change everything he wants, or delete cafe |
 | **Preconditions**               | Already existing cafe with manager and filled data.          |
@@ -56,10 +68,6 @@
 | **Priority**                    | Top priority, because the other way there admins couldn't change the errors about their cafes. |
 | **Non-behavioral requirements** | Performance to a website response of the whole system is limited to three seconds, in this time DB should be updated and frontend must respond. Only user with the rights of admin could change/delete cafeteriums. |
 | **Source**                      | Such process gives possibility to make app scalable in a distant future(United Interviews, Scalability) |
-
-![04](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Change%20and%20delete%20cafe.png?raw=true)
-
-
 
 
 
