@@ -60,6 +60,8 @@
 | ------------------------------- | ------------------------------------------------------------ |
 | **Unique use case ID**          | 02                                                           |
 | **Primary actor(s)**            | Administrator                                                |
+| **Unique use case ID**          | 03                                                           |
+| **Primary actor(s)**            | Administrator of the canteens                                |
 | **Secondary actor(s)**          | Managers, Users                                              |
 | **Brief description**           | Admin change or delete cafe/canteen, he is free to change everything he wants, or delete cafe |
 | **Preconditions**               | Already existing cafe with manager and filled data.          |
@@ -73,11 +75,11 @@
 
 | Use case name          | Create order                                                 |
 | ---------------------- | :----------------------------------------------------------- |
-| **Unique use case ID** | 03                                                           |
-| **Primary actor(s)**   | Customer                                                     |
-| **Brief description**  | Customer makes an order through the application              |
+| **Unique use case ID** | 04                                                           |
+| **Primary actor(s)**   | User                                                         |
+| **Brief description**  | User makes an order through the application                  |
 | **Preconditions**      | The meals/dishes to be ordered are available                 |
-| **Flow of events**     | 1. Customer selects the desired option from menu<br />2. User enters his location<br />3. User presses the submit button |
+| **Flow of events**     | 1. User selects the desired option from menu<br />2. User enters his location<br />3. User presses the submit button |
 | **Postconditions**     | Order is completed                                           |
 
 ![05](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Make%20New%20Order.jpg?raw=true)
@@ -86,19 +88,38 @@
 
 
 
-| Use case name          | Set time to cook                                             |
+| Use case name          | Delete order                                                 |
 | ---------------------- | ------------------------------------------------------------ |
-| **Unique use case ID** | 04                                                           |
-| **Primary actor(s)**   | Manager                                                      |
-| **Brief description**  | Default time to cook a standard dish                         |
-| **Preconditions**      | No default time is set. Or the default time is about to be changed. |
-| **Flow of events**     | Manager sets new or changes default time to cook             |
-| **Postconditions**     | The default time is saved                                    |
-| **Priority**           | High                                                         |
-| **Assumptions**        | Customers will see the time when their order is ready with respect to time every dish takes |
-| **Source**             | United Interviews, Time of order is ready                    |
+| **Unique use case ID** | 05                                                           |
+| **Primary actor(s)**   | User                                                         |
+| **Brief description**  | Canceling order by user                                      |
+| **Preconditions**      | Order is created less than 10 minutes ago                    |
+| **Flow of events**     | 1. User selects his order<br />2. User presses delete button |
+| **Postconditions**     | Order is deleted                                             |
 
 ![06](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Set%20default%20time%20to%20cook.png?raw=true)
+
+
+
+| Use case name          | Confirm order                                                |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 06                                                           |
+| **Primary actor(s)**   | Manager                                                      |
+| **Brief description**  | Manager confirms the order created by User                   |
+| **Preconditions**      | Order is created by User                                     |
+| **Flow of events**     | 1. Manager selects the pending order<br />2. Manager presses confirm button |
+| **Postconditions**     | Order is confirmed                                           |
+
+
+
+| Use case name          | Decline order                                                |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 07                                                           |
+| **Primary actor(s)**   | Manager                                                      |
+| **Brief description**  | Manager declines order                                       |
+| **Preconditions**      | Order is created by User                                     |
+| **Flow of events**     | 1. Manager selects the pending order<br />2. Manager presses decline button |
+| **Postconditions**     | Order is declined and deleted                                |
 
 
 
@@ -177,14 +198,27 @@
 
 
 
-| Use case name         | Make Complaint                                               |
-| --------------------- | ------------------------------------------------------------ |
-| **Primary actor(s)**  | Customer                                                     |
-| **Brief description** | When a customer is not satisfied or happy with the order/delivery. |
-| **Preconditions**     | Customer made an order of meal (Dissatisfied)                |
-| **Flow of events**    | Users receives an order he/she is not satisfied with. User goes to the list (history) of his/her orders made, then choices the order in question and clicks the complaint button. A textbox is filled and submitted, the message is sent to the manager. |
-| **Postconditions**    | Complaint sent to manager                                    |
-| **Priority**          | High                                                         |
-| **Source**            | Interviews, User making complaint                            |
+| Use case name          | Create complaint                                             |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** |                                                              |
+| **Primary actor(s)**   | User                                                         |
+| **Brief description**  | If User is not satisfied or unhappy with the order/delivery, he creates |
+| **Preconditions**      | Order was confirmed by Manager                               |
+| **Flow of events**     | 1. User selects order from his order history<br />2. User presses 'Complain' button<br />3. User enters description of the problem in the form<br />4. User submits the form to the system |
+| **Postconditions**     | Complaint is created and stored in the database              |
 
 ![12](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Complaint%20Use%20Case.png?raw=true)
+
+
+
+| Use case name          | Resolve complaint                                            |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** |                                                              |
+| **Primary actor(s)**   | Manager                                                      |
+| **Brief description**  | When Manager contacted User outside the system, check in the system that the complaint is resolved |
+| **Preconditions**      | User created complaint                                       |
+| **Flow of events**     | 1. Manager selects resolved complaint from the list<br />2. Manager changes it's state to 'Resolved' |
+| **Postconditions**     | Complaint is hidden from both user and manager               |
+
+![12](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Complaint%20Use%20Case.png?raw=true)
+
