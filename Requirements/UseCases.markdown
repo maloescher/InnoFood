@@ -102,6 +102,17 @@
 
 
 
+| Use case name          | Decline order                                                |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 07                                                           |
+| **Primary actor(s)**   | Manager                                                      |
+| **Brief description**  | Manager declines order                                       |
+| **Preconditions**      | Order is created by User                                     |
+| **Flow of events**     | 1. Manager selects the pending order<br />2. Manager presses decline button |
+| **Postconditions**     | Order is declined and deleted                                |
+
+
+
 | Use case name          | Create dish                                                  |
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 05                                                           |
