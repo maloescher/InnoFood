@@ -144,17 +144,14 @@
 
 
 
-| Use case name         | Select menu                                                  |
-| --------------------- | ------------------------------------------------------------ |
-|                       |                                                              |
-| **Primary actor(s)**  | Manager                                                      |
-| **Brief description** | A manager sets available menu for each weekday or for a particular date |
-| **Preconditions**     | The menus are created select a menu for every weekday.       |
-| **Flow of events**    | It is possible for a manager to select a menu for every weekday. For example, a selected menu for Monday will be used automatically every Monday. It is possible to leave some weekdays empty. It is possible to select a menu for a particular date, for example, October 21. If a weekday menu could be used for that day too, particular date menu has higher priority. |
-| **Postconditions**    | The menu is selected                                         |
-| **Priority**          | High                                                         |
-| **Assumptions**       | If all weekdays aren't filled with templates, the app won't work since 00:00 until one of the menus is selected |
-| **Source**            | United Interviews, Predefined menus for managers             |
+| Use case name          | Edit menu                                                    |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** |                                                              |
+| **Primary actor(s)**   | Manager                                                      |
+| **Brief description**  | A manager sets available menu for each week                  |
+| **Preconditions**      | There are entries in Menu table                              |
+| **Flow of events**     | 1. Manager opens the Menu table from his side<br />2. Manger checks all of the checkboxes next to entries setting their visibility for the user to True/False |
+| **Postconditions**     | All of the unavailible meals are hidden from the user, all of the availible are shown |
 
 ![09](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Select%20menu.png?raw=true)
 
@@ -172,19 +169,6 @@
 | **Source**                           | United Interviews, Time of order is ready                    |
 
 ![10](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Set%20working%20hours.png?raw=true)
-
-| Use case name                        | Open cafe                                                    |
-| ------------------------------------ | ------------------------------------------------------------ |
-| **Primary actor(s)**                 | Manager                                                      |
-| **Brief description**                | Open cafe when you are ready                                 |
-| **Preconditions**                    | Cafe is not opened                                           |
-| **Flow of events**                   | When all required information is filled (dishes, menus, working hours), a manager opens the cafe |
-| **Postconditions**                   | Cafe is opened                                               |
-| **Priority**                         | High                                                         |
-| **Alternative flows and exceptions** | 24 hours open is possible                                    |
-| **Source**                           | United Interviews, Who updates dishes                        |
-
-![11](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Open%20cafe.png)
 
 
 
