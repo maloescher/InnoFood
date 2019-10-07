@@ -188,14 +188,12 @@
 
 
 
-| Use case name         | Make Complaint                                               |
+| Use case name         | Create complaint                                             |
 | --------------------- | ------------------------------------------------------------ |
-| **Primary actor(s)**  | Customer                                                     |
-| **Brief description** | When a customer is not satisfied or happy with the order/delivery. |
-| **Preconditions**     | Customer made an order of meal (Dissatisfied)                |
-| **Flow of events**    | Users receives an order he/she is not satisfied with. User goes to the list (history) of his/her orders made, then choices the order in question and clicks the complaint button. A textbox is filled and submitted, the message is sent to the manager. |
-| **Postconditions**    | Complaint sent to manager                                    |
-| **Priority**          | High                                                         |
-| **Source**            | Interviews, User making complaint                            |
+| **Primary actor(s)**  | User                                                         |
+| **Brief description** | If User is not satisfied or unhappy with the order/delivery, he creates |
+| **Preconditions**     | Order was confirmed by Manager                               |
+| **Flow of events**    | 1. User selects order from his order history<br />2. User presses 'Complain' button<br />3. User enters description of the problem in the form<br />4. User submits the form to the system |
+| **Postconditions**    | Complaint is created and stored in the database              |
 
 ![12](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Complaint%20Use%20Case.png?raw=true)
