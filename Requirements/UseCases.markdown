@@ -127,13 +127,10 @@
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 05                                                           |
 | **Primary actor(s)**   | Manager                                                      |
-| **Brief description**  | Manager creates a dish                                       |
-| **Preconditions**      | There's a need to add a dish to menu                         |
-| **Flow of events**     | The form to create a new dish comes with time to cook filled, which is equal to default time. To create a dish, a manager must fill title, description and image. Also, it's possible to set time needed to prepare the dish, if it's different from default. |
-| **Postconditions**     | Time to cook, description, title and image are filled        |
-| **Priority**           | High                                                         |
-| **Assumptions**        | A manager has description and the dish picture ready         |
-| **Source**             | United Interviews, Who updates dishes                        |
+| **Brief description**  | Manager creates an entry in Menu table                       |
+| **Preconditions**      | There is a Cafe entity that Manager is assigned to           |
+| **Flow of events**     | 1. Manager opens the Menu table from his side<br />2. Manager presses 'Add' button<br />3. Pop-up window with the form containing name and price fields appears<br />4. Manager enters dish name<br />5. Manager enters dish price<br />6. Manager submits form<br />7. Database updates |
+| **Postconditions**     | New Dish entry added into Menu table                         |
 
 ![07](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20dish.png?raw=true)
 
