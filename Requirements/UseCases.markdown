@@ -188,12 +188,27 @@
 
 
 
-| Use case name         | Create complaint                                             |
-| --------------------- | ------------------------------------------------------------ |
-| **Primary actor(s)**  | User                                                         |
-| **Brief description** | If User is not satisfied or unhappy with the order/delivery, he creates |
-| **Preconditions**     | Order was confirmed by Manager                               |
-| **Flow of events**    | 1. User selects order from his order history<br />2. User presses 'Complain' button<br />3. User enters description of the problem in the form<br />4. User submits the form to the system |
-| **Postconditions**    | Complaint is created and stored in the database              |
+| Use case name          | Create complaint                                             |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** |                                                              |
+| **Primary actor(s)**   | User                                                         |
+| **Brief description**  | If User is not satisfied or unhappy with the order/delivery, he creates |
+| **Preconditions**      | Order was confirmed by Manager                               |
+| **Flow of events**     | 1. User selects order from his order history<br />2. User presses 'Complain' button<br />3. User enters description of the problem in the form<br />4. User submits the form to the system |
+| **Postconditions**     | Complaint is created and stored in the database              |
 
 ![12](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Complaint%20Use%20Case.png?raw=true)
+
+
+
+| Use case name          | Resolve complaint                                            |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** |                                                              |
+| **Primary actor(s)**   | Manager                                                      |
+| **Brief description**  | When Manager contacted User outside the system, check in the system that the complaint is resolved |
+| **Preconditions**      | User created complaint                                       |
+| **Flow of events**     | 1. Manager selects resolved complaint from the list<br />2. Manager changes it's state to 'Resolved' |
+| **Postconditions**     | Complaint is hidden from both user and manager               |
+
+![12](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Complaint%20Use%20Case.png?raw=true)
+
