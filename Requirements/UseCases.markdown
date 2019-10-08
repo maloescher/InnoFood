@@ -1,6 +1,10 @@
 # Use cases
 
-## Roles:
+**Table of contents**
+
+[TOC]
+
+## Roles
 
 | Role              | Description                                                  |
 | ----------------- | ------------------------------------------------------------ |
@@ -10,7 +14,11 @@
 
 ## Use cases
 
+### Overall use case diagram
+
 ![01](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/01.png?raw=true)
+
+### Create cafe
 
 | Use case name          | Create Cafe                                                  |
 | ---------------------- | ------------------------------------------------------------ |
@@ -21,9 +29,11 @@
 | **Preconditions**      | Newly built, or cafe not entered at the system, manager, earlier created by admin. |
 | **Flow of events**     | 1. Administrator enter the administrator panel.<br/>2. Administrator choose the option "Create new cafe". <br/>2. Administrator fill the "new cafe" form. <br/>3. Administrator click on "save data" bottom.<br/>4. A new register is created on the data base. <br/>5. Administrator receive a confirmation message. |
 | **Postconditions**     | A New cafe has been added to the database and is visible from the administrator panel.<br/>A managers has been assigned to the Cafe |
-| **Alternative Flow **  | Administrator does not receive confirmation message (error message). <br/>Administraror must contact IT department. |
+| **Alternative Flow **  | Administrator does not receive confirmation message (error message). <br/>Administrator must contact IT department. |
 | **Assumptions**        | The Administrator is logged in the system and has the needed rights to perform this action. |
 | **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
+
+### Edit cafe
 
 | Use case name                   | Edit Cafe                                                    |
 | ------------------------------- | ------------------------------------------------------------ |
@@ -32,12 +42,13 @@
 | **Secondary actor(s)**          | Database                                                     |
 | **Brief description**           | Administrator wants to update information about a cafe.      |
 | **Preconditions**               | The cafe already exist. <br/>The Administrator has the right for making the changes. |
-| **Flow of events**              | 1. Administator choose enter administration panel<br/>2. Administator click on the edit buttom of the cafe to edit <br/>3. Administrator makes the modifications needed<br/>4. Administrator click on "Save changes" buttom.<br/>5. System display a confirmation message.<br/>6. System perform update action in the DB.<br/>7. System display "Sucessfull message". |
+| **Flow of events**              | 1. Administrator choose enter administration panel<br/>2. Administrator click on the edit button of the cafe to edit <br/>3. Administrator makes the modifications needed<br/>4. Administrator click on "Save changes" button.<br/>5. System display a confirmation message.<br/>6. System perform update action in the DB.<br/>7. System display "Successful message". |
 | **Postconditions**              | The information of the cafe has been updated.                |
 | **Alternative Flow **           | 1. Administrator press cancel on the confirmation message.<br/>2. System must display again the form. <br/>1. Administrator does not receive confirmation message (error message). <br/>2. Administraror must contact IT department. |
 | **Assumptions**        		  | The Administrator is logged in the system and has the needed rights to perform this action. |
 | **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
 
+### Delete cafe
 
 | Use case name          | Delete Cafe                                                  |
 | ---------------------- | ------------------------------------------------------------ |
@@ -45,11 +56,13 @@
 | **Primary actor(s)**   | Administrator                                                |
 | **Brief description**  | Administrator wants to delete a cafe.                        |
 | **Preconditions**      | The cafe already exist. <br/>The Administrator has the right for making the changes. |
-| **Flow of events**     | 1. Administator choose enter administration panel<br/>2. Administator click on the delete buttom of the cafe to delete<br/>3. System display a confirmation message<br/>4. System perform soft delete in the DB.<br/>5. System display "Sucessfull message". |
+| **Flow of events**     | 1. Administrator choose enter administration panel<br/>2. Administrator click on the delete button of the cafe to delete<br/>3. System display a confirmation message<br/>4. System perform soft delete in the DB.<br/>5. System display "Successful message". |
 | **Postconditions**     | The cafe has been soft deleted.                              |
-| **Alternative Flow**   | Administrationr does not receive confirmation message (error message). <br/>Administrator must contact IT department. |
+| **Alternative Flow**   | Administrator does not receive confirmation message (error message). <br/>Administrator must contact IT department. |
 | **Assumptions**        | The Administrator is logged in the system and has the needed rights to perform this action. |
 | **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
+
+### Create manager
 
 | Use case name          | Create Manager                                               |
 | ---------------------- | ------------------------------------------------------------ |
@@ -64,18 +77,22 @@
 | **Assumptions**        | The Administrator is logged in the system and has the needed rights to perform this action. |
 | **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
 
+### Edit manager
+
 | Use case name                   | Edit Manager                                                 |
 | ------------------------------- | ------------------------------------------------------------ |
 | **Unique use case ID**          | 005                                                          |
 | **Primary actor(s)**            | Administrator                                                |
 | **Secondary actor(s)**          | Manager, Database                                            |
 | **Brief description**           | Administrator wants to update information about a Manager.   |
-| **Preconditions**               | The Manageralready exist. <br/>The Administrator has the right for making the changes. |
-| **Flow of events**              | 1. Administator choose enter administration panel<br/>2. Administator click on the edit buttom of the Manager to edit <br/>3. Administrator makes the modifications needed<br/>4. Administrator click on "Save changes" buttom.<br/>5. System display a confirmation message.<br/>6. System perform update action in the DB.<br/>7. System display "Sucessfull message". |
-| **Alternative Flow **           | 1. Administrator press cancel on the confirmation message.<br/>2. System must display again the form. <br/>1. Administrator does not receive confirmation message (error message). <br/>2. Administraror must contact IT department. |
+| **Preconditions**               | The Manager already exist. <br/>The Administrator has the right for making the changes. |
+| **Flow of events**              | 1. Administrator choose enter administration panel<br/>2. Administrator click on the edit button of the Manager to edit <br/>3. Administrator makes the modifications needed<br/>4. Administrator click on "Save changes" button.<br/>5. System display a confirmation message.<br/>6. System perform update action in the DB.<br/>7. System display "Successful message". |
+| **Alternative Flow **           | 1. Administrator press cancel on the confirmation message.<br/>2. System must display again the form. <br/>1. Administrator does not receive confirmation message (error message). <br/>2. Administrator must contact IT department. |
 | **Postconditions**              | The information of the Manager has been updated.             |
 | **Assumptions**                 | The Administrator is logged in the system and has the needed rights to perform this action. |
 | **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
+
+### Delete manager
 
 
 | Use case name           | Delete Manager                                               |
@@ -85,11 +102,13 @@
 | **Secondary actors(s)** | Manager, Database                                            |
 | **Brief description**   | Administrator wants to delete a Manager.                     |
 | **Preconditions**       | The Manager already exist. <br/>The Administrator has the right for making the changes. |
-| **Flow of events**      | 1. Administator choose enter administration panel<br/>2. Administator click on the delete buttom of the Manager to delete<br/>3. System display a confirmation message<br/>4. System perform soft delete in the DB.<br/>5. System display "Sucessfull message". |
-| **Alternative Flow**    | Administrationr does not receive confirmation message (error message). <br/>Administrator must contact IT department. |
+| **Flow of events**      | 1. Administrator choose enter administration panel<br/>2. Administrator click on the delete buttom of the Manager to delete<br/>3. System display a confirmation message<br/>4. System perform soft delete in the DB.<br/>5. System display "Sucessfull message". |
+| **Alternative Flow**    | Administration does not receive confirmation message (error message). <br/>Administrator must contact IT department. |
 | **Postconditions**      | The Manager has been soft deleted.                           |
 | **Assumptions**         | The Administrator is logged in the system and has the needed rights to perform this action. |
 | **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
+
+### Create order
 
 | Use case name          | Create order                                                 |
 | ---------------------- | :----------------------------------------------------------- |
@@ -100,6 +119,9 @@
 | **Flow of events**     | 1. User selects the desired option from menu<br />2. User enters his location<br />3. User presses the submit button |
 | **Postconditions**     | Order is completed                                           |
 
+
+### Delete order
+
 | Use case name          | Delete order                                                 |
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 008                                                          |
@@ -108,6 +130,8 @@
 | **Preconditions**      | Order is created less than 10 minutes ago                    |
 | **Flow of events**     | 1. User selects his order<br />2. User presses delete button |
 | **Postconditions**     | Order is deleted                                             |
+
+### Confirm order
 
 | Use case name          | Confirm order                                                |
 | ---------------------- | ------------------------------------------------------------ |
@@ -118,6 +142,8 @@
 | **Flow of events**     | 1. Manager selects the pending order<br />2. Manager presses confirm button |
 | **Postconditions**     | Order is confirmed                                           |
 
+### Decline order
+
 | Use case name          | Decline order                                                |
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 010                                                          |
@@ -126,6 +152,8 @@
 | **Preconditions**      | Order is created by User                                     |
 | **Flow of events**     | 1. Manager selects the pending order<br />2. Manager presses decline button |
 | **Postconditions**     | Order is declined and deleted                                |
+
+### Create dish
 
 | Use case name          | Create dish                                                  |
 | ---------------------- | ------------------------------------------------------------ |
@@ -136,6 +164,8 @@
 | **Flow of events**     | 1. Manager opens the Menu table from his side<br />2. Manager presses 'Add' button<br />3. Pop-up window with the form containing name and price fields appears<br />4. Manager enters dish name<br />5. Manager enters dish price<br />6. Manager submits form<br />7. Database updates |
 | **Postconditions**     | New Dish entry added into Menu table                         |
 
+### Edit dish
+
 | Use case name          | Edit dish                                                    |
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 012                                                          |
@@ -145,14 +175,18 @@
 | **Flow of events**     | 1. Manager opens the Menu table from his side<br />2. Manager presses 'Edit' button<br />3. Pop-up window with the form containing name and price fields appears filled with the current values<br />4. Manager edits values<br />6. Manager submits form<br />7. Database updates |
 | **Postconditions**     | Dish entry is updated                                        |
 
+### Edit menu
+
 | Use case name          | Edit menu                                                    |
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 013                                                          |
 | **Primary actor(s)**   | Manager                                                      |
 | **Brief description**  | A manager sets available menu for each week                  |
 | **Preconditions**      | There are entries in Menu table                              |
-| **Flow of events**     | 1. Manager opens the Menu table from his side<br />2. Manger checks all of the checkboxes next to entries setting their visibility for the user to True/False |
-| **Postconditions**     | All of the unavailible meals are hidden from the user, all of the availible are shown |
+| **Flow of events**     | 1. Manager opens the Menu table from his side<br />2. Manger checks all of the check boxes next to entries setting their visibility for the user to True/False |
+| **Postconditions**     | All of the unavailable meals are hidden from the user, all of the available are shown |
+
+### Create complaint
 
 | Use case name          | Create complaint                                             |
 | ---------------------- | ------------------------------------------------------------ |
@@ -162,6 +196,8 @@
 | **Preconditions**      | Order was confirmed by Manager                               |
 | **Flow of events**     | 1. User selects order from his order history<br />2. User presses 'Complain' button<br />3. User enters description of the problem in the form<br />4. User submits the form to the system |
 | **Postconditions**     | Complaint is created and stored in the database              |
+
+### Resolve complaint
 
 | Use case name          | Resolve complaint                                            |
 | ---------------------- | ------------------------------------------------------------ |
