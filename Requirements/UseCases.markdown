@@ -23,8 +23,6 @@
 | **Postconditions**     | A New cafe has been added to the database and is visible from the administrator panel.<br/>A managers has been assigned to the Cafe |
 | **Alternative Flow **  | Administrator does not receive confirmation message (error message). <br/>Administraror must contact IT department. |
 
-![02](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20cafe.png?raw=true)
-
 | Use case name                   | Edit Cafe                                                    |
 | ------------------------------- | ------------------------------------------------------------ |
 | **Unique use case ID**          | 002                                                          |
@@ -49,8 +47,6 @@
 | **Alternative Flow**   | Administrationr does not receive confirmation message (error message). <br/>Administrator must contact IT department. |
 | **Assumptions**        | The Administrator is logged in the system and has the needed rights to perform this action. |
 
-![03](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Change%20and%20delete%20cafe.png?raw=true)
-
 | Use case name          | Create Manager                                               |
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 004                                                          |
@@ -62,8 +58,6 @@
 | **Postconditions**     | A New administrator has been added to the database and is visible from the administrator panel.<br/> |
 | **Alternative Flow **  | Administrator does not receive confirmation message (error message). <br/>Administraror must contact IT department. |
 | **Assumptions**        | The Administrator is logged in the system and has the needed rights to perform this action. |
-
-![02](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20cafe.png?raw=true)
 
 | Use case name                   | Edit Manager                                                 |
 | ------------------------------- | ------------------------------------------------------------ |
@@ -90,12 +84,6 @@
 | **Alternative Flow**    | Administrationr does not receive confirmation message (error message). <br/>Administrator must contact IT department. |
 | **Assumptions**         | The Administrator is logged in the system and has the needed rights to perform this action. |
 
-
-
-![04](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20manager.png?raw=true)
-
-
-
 | Use case name          | Create order                                                 |
 | ---------------------- | :----------------------------------------------------------- |
 | **Unique use case ID** | 007                                                          |
@@ -107,8 +95,6 @@
 |                        |                                                              |
 |                        |                                                              |
 
-![05](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Make%20New%20Order.jpg?raw=true)
-
 | Use case name          | Delete order                                                 |
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 008                                                          |
@@ -117,8 +103,6 @@
 | **Preconditions**      | Order is created less than 10 minutes ago                    |
 | **Flow of events**     | 1. User selects his order<br />2. User presses delete button |
 | **Postconditions**     | Order is deleted                                             |
-
-![06](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Set%20default%20time%20to%20cook.png?raw=true)
 
 | Use case name          | Confirm order                                                |
 | ---------------------- | ------------------------------------------------------------ |
@@ -129,8 +113,6 @@
 | **Flow of events**     | 1. Manager selects the pending order<br />2. Manager presses confirm button |
 | **Postconditions**     | Order is confirmed                                           |
 
-
-
 | Use case name          | Decline order                                                |
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 010                                                          |
@@ -139,8 +121,6 @@
 | **Preconditions**      | Order is created by User                                     |
 | **Flow of events**     | 1. Manager selects the pending order<br />2. Manager presses decline button |
 | **Postconditions**     | Order is declined and deleted                                |
-
-
 
 | Use case name          | Create dish                                                  |
 | ---------------------- | ------------------------------------------------------------ |
@@ -151,10 +131,6 @@
 | **Flow of events**     | 1. Manager opens the Menu table from his side<br />2. Manager presses 'Add' button<br />3. Pop-up window with the form containing name and price fields appears<br />4. Manager enters dish name<br />5. Manager enters dish price<br />6. Manager submits form<br />7. Database updates |
 | **Postconditions**     | New Dish entry added into Menu table                         |
 
-![07](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20dish.png?raw=true)
-
-
-
 | Use case name          | Edit dish                                                    |
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 012                                                          |
@@ -163,10 +139,6 @@
 | **Preconditions**      | There are entries in the Menu table                          |
 | **Flow of events**     | 1. Manager opens the Menu table from his side<br />2. Manager presses 'Edit' button<br />3. Pop-up window with the form containing name and price fields appears filled with the current values<br />4. Manager edits values<br />6. Manager submits form<br />7. Database updates |
 | **Postconditions**     | Dish entry is updated                                        |
-
-![08](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20menu.png?raw=true)
-
-
 
 | Use case name          | Edit menu                                                    |
 | ---------------------- | ------------------------------------------------------------ |
@@ -177,10 +149,6 @@
 | **Flow of events**     | 1. Manager opens the Menu table from his side<br />2. Manger checks all of the checkboxes next to entries setting their visibility for the user to True/False |
 | **Postconditions**     | All of the unavailible meals are hidden from the user, all of the availible are shown |
 
-![09](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Select%20menu.png?raw=true)
-
-
-
 | Use case name          | Create complaint                                             |
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 014                                                          |
@@ -190,10 +158,6 @@
 | **Flow of events**     | 1. User selects order from his order history<br />2. User presses 'Complain' button<br />3. User enters description of the problem in the form<br />4. User submits the form to the system |
 | **Postconditions**     | Complaint is created and stored in the database              |
 
-![12](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Complaint%20Use%20Case.png?raw=true)
-
-
-
 | Use case name          | Resolve complaint                                            |
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 015                                                          |
@@ -202,6 +166,3 @@
 | **Preconditions**      | User created complaint                                       |
 | **Flow of events**     | 1. Manager selects resolved complaint from the list<br />2. Manager changes it's state to 'Resolved' |
 | **Postconditions**     | Complaint is hidden from both user and manager               |
-
-![12](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Complaint%20Use%20Case.png?raw=true)
-
