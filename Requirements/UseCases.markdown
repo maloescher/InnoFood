@@ -22,7 +22,6 @@
 | **Flow of events**     | 1. Administrator enter the administrator panel.<br/>2. Administrator choose the option "Create new cafe". <br/>2. Administrator fill the "new cafe" form. <br/>3. Administrator click on "save data" bottom.<br/>4. A new register is created on the data base. <br/>5. Administrator receive a confirmation message. |
 | **Postconditions**     | A New cafe has been added to the database and is visible from the administrator panel.<br/>A managers has been assigned to the Cafe |
 | **Alternative Flow **  | Administrator does not receive confirmation message (error message). <br/>Administraror must contact IT department. |
-| **Assumptions**        | The Administrator is logged in the system and has the needed rights to perform this action. |
 
 ![02](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20cafe.png?raw=true)
 
@@ -99,7 +98,7 @@
 
 | Use case name          | Create order                                                 |
 | ---------------------- | :----------------------------------------------------------- |
-| **Unique use case ID** | 04                                                           |
+| **Unique use case ID** | 007                                                          |
 | **Primary actor(s)**   | User                                                         |
 | **Brief description**  | User makes an order through the application                  |
 | **Preconditions**      | The meals/dishes to be ordered are available                 |
@@ -112,7 +111,7 @@
 
 | Use case name          | Delete order                                                 |
 | ---------------------- | ------------------------------------------------------------ |
-| **Unique use case ID** | 05                                                           |
+| **Unique use case ID** | 008                                                          |
 | **Primary actor(s)**   | User                                                         |
 | **Brief description**  | Canceling order by user                                      |
 | **Preconditions**      | Order is created less than 10 minutes ago                    |
@@ -123,7 +122,7 @@
 
 | Use case name          | Confirm order                                                |
 | ---------------------- | ------------------------------------------------------------ |
-| **Unique use case ID** | 06                                                           |
+| **Unique use case ID** | 009                                                          |
 | **Primary actor(s)**   | Manager                                                      |
 | **Brief description**  | Manager confirms the order created by User                   |
 | **Preconditions**      | Order is created by User                                     |
@@ -134,7 +133,7 @@
 
 | Use case name          | Decline order                                                |
 | ---------------------- | ------------------------------------------------------------ |
-| **Unique use case ID** | 07                                                           |
+| **Unique use case ID** | 010                                                          |
 | **Primary actor(s)**   | Manager                                                      |
 | **Brief description**  | Manager declines order                                       |
 | **Preconditions**      | Order is created by User                                     |
@@ -145,7 +144,7 @@
 
 | Use case name          | Create dish                                                  |
 | ---------------------- | ------------------------------------------------------------ |
-| **Unique use case ID** | 05                                                           |
+| **Unique use case ID** | 011                                                          |
 | **Primary actor(s)**   | Manager                                                      |
 | **Brief description**  | Manager creates an entry in Menu table                       |
 | **Preconditions**      | There is a Cafe entity that Manager is assigned to           |
@@ -158,25 +157,12 @@
 
 | Use case name          | Edit dish                                                    |
 | ---------------------- | ------------------------------------------------------------ |
-| **Unique use case ID** | 05                                                           |
+| **Unique use case ID** | 012                                                          |
 | **Primary actor(s)**   | Manager                                                      |
 | **Brief description**  | Manager edits an entry in Menu table                         |
 | **Preconditions**      | There are entries in the Menu table                          |
 | **Flow of events**     | 1. Manager opens the Menu table from his side<br />2. Manager presses 'Edit' button<br />3. Pop-up window with the form containing name and price fields appears filled with the current values<br />4. Manager edits values<br />6. Manager submits form<br />7. Database updates |
 | **Postconditions**     | Dish entry is updated                                        |
-
-
-
-| Use case name          | Create menu                                                  |
-| ---------------------- | ------------------------------------------------------------ |
-| **Unique use case ID** | 06                                                           |
-| **Primary actor(s)**   | Manager                                                      |
-| **Brief description**  | Creating a menu with a set of dishes                         |
-| **Preconditions**      | The dishes that is to be selected are created and saved      |
-| **Flow of events**     | A manager selects a set of dishes for a menu that is to be available in some days (possibly weekdays). The new menu must be saved with a title. |
-| **Postconditions**     | New menu is created                                          |
-| **Priority**           | High                                                         |
-| **Source**             | United Interviews, Predefined menus for managers             |
 
 ![08](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20menu.png?raw=true)
 
@@ -184,7 +170,7 @@
 
 | Use case name          | Edit menu                                                    |
 | ---------------------- | ------------------------------------------------------------ |
-| **Unique use case ID** |                                                              |
+| **Unique use case ID** | 013                                                          |
 | **Primary actor(s)**   | Manager                                                      |
 | **Brief description**  | A manager sets available menu for each week                  |
 | **Preconditions**      | There are entries in Menu table                              |
@@ -195,24 +181,9 @@
 
 
 
-| Use case name                        | Set working hours                                            |
-| ------------------------------------ | ------------------------------------------------------------ |
-| **Primary actor(s)**                 | Manager                                                      |
-| **Brief description**                | A manager configures working hours, during which it's possible to order |
-| **Preconditions**                    | Working hours are not set. Or working hours are about to be changed. |
-| **Flow of events**                   | A manager sets working hours                                 |
-| **Postconditions**                   | Working hours are saved.                                     |
-| **Priority**                         | High                                                         |
-| **Alternative flows and exceptions** | 24 hours open is possible                                    |
-| **Source**                           | United Interviews, Time of order is ready                    |
-
-![10](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Set%20working%20hours.png?raw=true)
-
-
-
 | Use case name          | Create complaint                                             |
 | ---------------------- | ------------------------------------------------------------ |
-| **Unique use case ID** |                                                              |
+| **Unique use case ID** | 014                                                          |
 | **Primary actor(s)**   | User                                                         |
 | **Brief description**  | If User is not satisfied or unhappy with the order/delivery, he creates |
 | **Preconditions**      | Order was confirmed by Manager                               |
@@ -225,7 +196,7 @@
 
 | Use case name          | Resolve complaint                                            |
 | ---------------------- | ------------------------------------------------------------ |
-| **Unique use case ID** |                                                              |
+| **Unique use case ID** | 015                                                          |
 | **Primary actor(s)**   | Manager                                                      |
 | **Brief description**  | When Manager contacted User outside the system, check in the system that the complaint is resolved |
 | **Preconditions**      | User created complaint                                       |
