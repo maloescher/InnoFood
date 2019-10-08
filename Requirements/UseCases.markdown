@@ -1,6 +1,10 @@
 # Use cases
 
-## Roles:
+**Table of contents**
+
+[TOC]
+
+## Roles
 
 | Role              | Description                                                  |
 | ----------------- | ------------------------------------------------------------ |
@@ -10,169 +14,196 @@
 
 ## Use cases
 
+### Overall use case diagram
+
 ![01](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/01.png?raw=true)
 
-| Use case name                   | Cafes creation use case                                      |
+### Create cafe
+
+| Use case name          | Create Cafe                                                  |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 001                                                          |
+| **Primary actor(s)**   | Administrator                                                |
+| **Secondary actor(s)** | Managers. <br/>Database.                                     |
+| **Brief description**  | Administrator creates a new cafe, and sets up all parameters for it, Administrator also assigns manager to that canteen. |
+| **Preconditions**      | Newly built, or cafe not entered at the system, manager, earlier created by admin. |
+| **Flow of events**     | 1. Administrator enter the administrator panel.<br/>2. Administrator choose the option "Create new cafe". <br/>2. Administrator fill the "new cafe" form. <br/>3. Administrator click on "save data" bottom.<br/>4. A new register is created on the data base. <br/>5. Administrator receive a confirmation message. |
+| **Postconditions**     | A New cafe has been added to the database and is visible from the administrator panel.<br/>A managers has been assigned to the Cafe |
+| **Alternative Flow **  | Administrator does not receive confirmation message (error message). <br/>Administrator must contact IT department. |
+| **Assumptions**        | The Administrator is logged in the system and has the needed rights to perform this action. |
+| **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
+
+### Edit cafe
+
+| Use case name                   | Edit Cafe                                                    |
 | ------------------------------- | ------------------------------------------------------------ |
-| **Unique use case ID**          | CA                                                           |
-| **Primary actor(s)**            | Administrator of the canteens                                |
-| **Secondary actor(s)**          | Managers                                                     |
-| **Brief description**           | Admin creates a new cafe/canteen, and sets up all parameters for it, he also assigns manager to that canteen. |
-| **Preconditions**               | Newly built, or cafe not entered at the system, manager, earlier created by admin. |
-| **Flow of events**              | First, administrator enters all the data needed for the cafe, as: Phone number, email, name, address, information about cafe, manager(information about him is automatically displayed when he is chosed). Then he click the create button, and get all data displayed to check, he can approve, or return back to changing, after this step he click approve button, and the response goes to server, cafe wouldn't be seen by users, until manager would "open" it, after he fills all the needed data. |
-| **Postconditions**              | New cafe added to the list of administrator, it is seen to the manager, that is responsible for this cafeterium, as well as for users, if this canteen is open. The cafe data is stationed in DB on backend. |
-| **Priority**                    | Top priority, because the other way there would be no canteens to serve the users. |
-| **Assumptions**                 | If admin would enter data in incorrect format, he would need to reenter it. |
-| **Non-behavioral requirements** | Performance to a website response of the whole system is limited to three seconds, in this time DB should be updated and frontend must respond. Only user with the rights of admin could create cafeteriums. |
-| **Source**                      | Such process gives possibility to make app scalable in a distant future(United Interviews, Scalability) |
+| **Unique use case ID**          | 002                                                          |
+| **Primary actor(s)**            | Administrator                                                |
+| **Secondary actor(s)**          | Database                                                     |
+| **Brief description**           | Administrator wants to update information about a cafe.      |
+| **Preconditions**               | The cafe already exist. <br/>The Administrator has the right for making the changes. |
+| **Flow of events**              | 1. Administrator choose enter administration panel<br/>2. Administrator click on the edit button of the cafe to edit <br/>3. Administrator makes the modifications needed<br/>4. Administrator click on "Save changes" button.<br/>5. System display a confirmation message.<br/>6. System perform update action in the DB.<br/>7. System display "Successful message". |
+| **Postconditions**              | The information of the cafe has been updated.                |
+| **Alternative Flow **           | 1. Administrator press cancel on the confirmation message.<br/>2. System must display again the form. <br/>1. Administrator does not receive confirmation message (error message). <br/>2. Administraror must contact IT department. |
+| **Assumptions**        		  | The Administrator is logged in the system and has the needed rights to perform this action. |
+| **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
 
-![02](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20cafe.png?raw=true)
+### Delete cafe
 
-| Use case name                   | Manager creation use case                                    |
+| Use case name          | Delete Cafe                                                  |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 003                                                          |
+| **Primary actor(s)**   | Administrator                                                |
+| **Brief description**  | Administrator wants to delete a cafe.                        |
+| **Preconditions**      | The cafe already exist. <br/>The Administrator has the right for making the changes. |
+| **Flow of events**     | 1. Administrator choose enter administration panel<br/>2. Administrator click on the delete button of the cafe to delete<br/>3. System display a confirmation message<br/>4. System perform soft delete in the DB.<br/>5. System display "Successful message". |
+| **Postconditions**     | The cafe has been soft deleted.                              |
+| **Alternative Flow**   | Administrator does not receive confirmation message (error message). <br/>Administrator must contact IT department. |
+| **Assumptions**        | The Administrator is logged in the system and has the needed rights to perform this action. |
+| **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
+
+### Create manager
+
+| Use case name          | Create Manager                                               |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 004                                                          |
+| **Primary actor(s)**   | Administrator                                                |
+| **Secondary actor(s)** | Managers. <br/>                                              |
+| **Brief description**  | Administrator creates a new manager, and sets up all parameters for it. |
+| **Preconditions**      | -                                                            |
+| **Flow of events**     | 1. Administrator enter the administrator panel.<br/>2. Administrator choose the option "Create new administrator". <br/>2. Administrator fill the "new administrator" form. <br/>3. Administrator click on "save data" bottom.<br/>4. A new register is created on the data base. <br/>5. Administrator receive a confirmation message. |
+| **Alternative Flow **  | Administrator does not receive confirmation message (error message). <br/>Administraror must contact IT department. |
+| **Postconditions**     | A New administrator has been added to the database and is visible from the administrator panel.<br/> |
+| **Assumptions**        | The Administrator is logged in the system and has the needed rights to perform this action. |
+| **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
+
+### Edit manager
+
+| Use case name                   | Edit Manager                                                 |
 | ------------------------------- | ------------------------------------------------------------ |
-| **Unique use case ID**          | CA                                                           |
-| **Primary actor(s)**            | Administrator of the canteens                                |
-| **Secondary actor(s)**          | Managers                                                     |
-| **Brief description**           | Admin creates a new manager of the canteen and sets up all parameters for him. |
-| **Preconditions**               | A real human person with email and phone number, that will be used for a work. |
-| **Flow of events**              | First, administrator enters all the data needed for the manager, as: Phone number, email, name,information about cafe he is responsible(if needed). Then he click the create button, and get all data displayed to check, he can approve, or return back to changing, after this step he click approve button, and the response goes to server. Parallely data about account (temporary autogenerated password,login) sent to the manager. |
-| **Postconditions**              | New manager is added to the list of managers, he is now possible to assign to a canteen, if he is assign, users will see his contact data. |
-| **Priority**                    | Top priority, because the other way there would be no management to fill in the data about the canteens. |
-| **Assumptions**                 | Admin shouldn't know managers password, for the privacy. If admin would enter data in incorrect format, he would need to reenter it. The letter would be sent automatically by the server. |
-| **Non-behavioral requirements** | Performance to a website response of the whole system is limited to three seconds, in this time DB should be updated and frontend must respond. Time of email sending is limited up to ten minutes(according to the Sofia interview). Password must be secure(created using pseudo-random generators), and should be stored in DB using hashing with salt, to prevent major breaking into the system. |
-| **Source**                      | United Interviews, Who updates dishes                        |
+| **Unique use case ID**          | 005                                                          |
+| **Primary actor(s)**            | Administrator                                                |
+| **Secondary actor(s)**          | Manager, Database                                            |
+| **Brief description**           | Administrator wants to update information about a Manager.   |
+| **Preconditions**               | The Manager already exist. <br/>The Administrator has the right for making the changes. |
+| **Flow of events**              | 1. Administrator choose enter administration panel<br/>2. Administrator click on the edit button of the Manager to edit <br/>3. Administrator makes the modifications needed<br/>4. Administrator click on "Save changes" button.<br/>5. System display a confirmation message.<br/>6. System perform update action in the DB.<br/>7. System display "Successful message". |
+| **Alternative Flow **           | 1. Administrator press cancel on the confirmation message.<br/>2. System must display again the form. <br/>1. Administrator does not receive confirmation message (error message). <br/>2. Administrator must contact IT department. |
+| **Postconditions**              | The information of the Manager has been updated.             |
+| **Assumptions**                 | The Administrator is logged in the system and has the needed rights to perform this action. |
+| **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
 
-![03](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20manager.png?raw=true)
-
-| Use case name                   | Cafes change/delete use case                                 |
-| ------------------------------- | ------------------------------------------------------------ |
-| **Primary actor(s)**            | Administrator of the canteens                                |
-| **Secondary actor(s)**          | Managers, Users                                              |
-| **Brief description**           | Admin change or delete cafe/canteen, he is free to change everything he wants, or delete cafe |
-| **Preconditions**               | Already existing cafe with manager and filled data.          |
-| **Flow of events**              | First, administrator is free to choose, ether he wants to delete or change cafe , if he wants to change cafe, he need to enter all needed data, and press submit, if he wants delete, he needs to press delete, ether way, he need to check his decision, and approve it, after it the changes will be written in DB, and both managers and users would see them. |
-| **Postconditions**              | Ether changed cafe is submitted in DB, or cafe is deleted.   |
-| **Priority**                    | Top priority, because the other way there admins couldn't change the errors about their cafes. |
-| **Non-behavioral requirements** | Performance to a website response of the whole system is limited to three seconds, in this time DB should be updated and frontend must respond. Only user with the rights of admin could change/delete cafeteriums. |
-| **Source**                      | Such process gives possibility to make app scalable in a distant future(United Interviews, Scalability) |
-
-![04](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Change%20and%20delete%20cafe.png?raw=true)
+### Delete manager
 
 
+| Use case name           | Delete Manager                                               |
+| ----------------------- | ------------------------------------------------------------ |
+| **Unique use case ID**  | 006                                                          |
+| **Primary actor(s)**    | Administrator                                                |
+| **Secondary actors(s)** | Manager, Database                                            |
+| **Brief description**   | Administrator wants to delete a Manager.                     |
+| **Preconditions**       | The Manager already exist. <br/>The Administrator has the right for making the changes. |
+| **Flow of events**      | 1. Administrator choose enter administration panel<br/>2. Administrator click on the delete buttom of the Manager to delete<br/>3. System display a confirmation message<br/>4. System perform soft delete in the DB.<br/>5. System display "Sucessfull message". |
+| **Alternative Flow**    | Administration does not receive confirmation message (error message). <br/>Administrator must contact IT department. |
+| **Postconditions**      | The Manager has been soft deleted.                           |
+| **Assumptions**         | The Administrator is logged in the system and has the needed rights to perform this action. |
+| **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
+
+### Create order
+
+| Use case name          | Create order                                                 |
+| ---------------------- | :----------------------------------------------------------- |
+| **Unique use case ID** | 007                                                          |
+| **Primary actor(s)**   | User                                                         |
+| **Brief description**  | User makes an order through the application                  |
+| **Preconditions**      | The meals/dishes to be ordered are available                 |
+| **Flow of events**     | 1. User selects the desired option from menu<br />2. User enters his location<br />3. User presses the submit button |
+| **Postconditions**     | Order is completed                                           |
 
 
+### Delete order
 
-| Use case name         | Make Order                                                   |
-| --------------------- | ------------------------------------------------------------ |
-| **Primary actor(s)**  | Customer                                                     |
-| **Brief description** | Customer makes an order through the application              |
-| **Preconditions**     | The meals/dishes to be ordered are available                 |
-| **Flow of events**    | User logs in with account email and password. Goes through the available menu, selects the desired meal and clicks make order button. |
-| **Postconditions**    | Order is completed                                           |
-| **Priority**          | Top priority, because the other way there admins couldn't change the errors about their cafes. |
-| **Source**            | Interviews, User making order                                |
+| Use case name          | Delete order                                                 |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 008                                                          |
+| **Primary actor(s)**   | User                                                         |
+| **Brief description**  | Canceling order by user                                      |
+| **Preconditions**      | Order is created less than 10 minutes ago                    |
+| **Flow of events**     | 1. User selects his order<br />2. User presses delete button |
+| **Postconditions**     | Order is deleted                                             |
 
-![05](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Make%20New%20Order.jpg?raw=true)
+### Confirm order
 
+| Use case name          | Confirm order                                                |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 009                                                          |
+| **Primary actor(s)**   | Manager                                                      |
+| **Brief description**  | Manager confirms the order created by User                   |
+| **Preconditions**      | Order is created by User                                     |
+| **Flow of events**     | 1. Manager selects the pending order<br />2. Manager presses confirm button |
+| **Postconditions**     | Order is confirmed                                           |
 
+### Decline order
 
+| Use case name          | Decline order                                                |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 010                                                          |
+| **Primary actor(s)**   | Manager                                                      |
+| **Brief description**  | Manager declines order                                       |
+| **Preconditions**      | Order is created by User                                     |
+| **Flow of events**     | 1. Manager selects the pending order<br />2. Manager presses decline button |
+| **Postconditions**     | Order is declined and deleted                                |
 
+### Create dish
 
-| Use case name         | Set time to cook                                             |
-| --------------------- | ------------------------------------------------------------ |
-| **Primary actor(s)**  | Manager                                                      |
-| **Brief description** | Default time to cook a standard dish                         |
-| **Preconditions**     | No default time is set. Or the default time is about to be changed. |
-| **Flow of events**    | Manager sets new or changes default time to cook             |
-| **Postconditions**    | The default time is saved                                    |
-| **Priority**          | High                                                         |
-| **Assumptions**       | Customers will see the time when their order is ready with respect to time every dish takes |
-| **Source**            | United Interviews, Time of order is ready                    |
+| Use case name          | Create dish                                                  |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 011                                                          |
+| **Primary actor(s)**   | Manager                                                      |
+| **Brief description**  | Manager creates an entry in Menu table                       |
+| **Preconditions**      | There is a Cafe entity that Manager is assigned to           |
+| **Flow of events**     | 1. Manager opens the Menu table from his side<br />2. Manager presses 'Add' button<br />3. Pop-up window with the form containing name and price fields appears<br />4. Manager enters dish name<br />5. Manager enters dish price<br />6. Manager submits form<br />7. Database updates |
+| **Postconditions**     | New Dish entry added into Menu table                         |
 
-![06](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Set%20default%20time%20to%20cook.png?raw=true)
+### Edit dish
 
+| Use case name          | Edit dish                                                    |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 012                                                          |
+| **Primary actor(s)**   | Manager                                                      |
+| **Brief description**  | Manager edits an entry in Menu table                         |
+| **Preconditions**      | There are entries in the Menu table                          |
+| **Flow of events**     | 1. Manager opens the Menu table from his side<br />2. Manager presses 'Edit' button<br />3. Pop-up window with the form containing name and price fields appears filled with the current values<br />4. Manager edits values<br />6. Manager submits form<br />7. Database updates |
+| **Postconditions**     | Dish entry is updated                                        |
 
+### Edit menu
 
-| Use case name         | Create dish                                                  |
-| --------------------- | ------------------------------------------------------------ |
-| **Primary actor(s)**  | Manager                                                      |
-| **Brief description** | Manager creates a dish                                       |
-| **Preconditions**     | There's a need to add a dish to menu                         |
-| **Flow of events**    | The form to create a new dish comes with time to cook filled, which is equal to default time. To create a dish, a manager must fill title, description and image. Also, it's possible to set time needed to prepare the dish, if it's different from default. |
-| **Postconditions**    | Time to cook, description, title and image are filled        |
-| **Priority**          | High                                                         |
-| **Assumptions**       | A manager has description and the dish picture ready         |
-| **Source**            | United Interviews, Who updates dishes                        |
+| Use case name          | Edit menu                                                    |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 013                                                          |
+| **Primary actor(s)**   | Manager                                                      |
+| **Brief description**  | A manager sets available menu for each week                  |
+| **Preconditions**      | There are entries in Menu table                              |
+| **Flow of events**     | 1. Manager opens the Menu table from his side<br />2. Manger checks all of the check boxes next to entries setting their visibility for the user to True/False |
+| **Postconditions**     | All of the unavailable meals are hidden from the user, all of the available are shown |
 
-![07](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20dish.png?raw=true)
+### Create complaint
 
+| Use case name          | Create complaint                                             |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 014                                                          |
+| **Primary actor(s)**   | User                                                         |
+| **Brief description**  | If User is not satisfied or unhappy with the order/delivery, he creates |
+| **Preconditions**      | Order was confirmed by Manager                               |
+| **Flow of events**     | 1. User selects order from his order history<br />2. User presses 'Complain' button<br />3. User enters description of the problem in the form<br />4. User submits the form to the system |
+| **Postconditions**     | Complaint is created and stored in the database              |
 
+### Resolve complaint
 
-| Use case name         | Create menu                                                  |
-| --------------------- | ------------------------------------------------------------ |
-| **Primary actor(s)**  | Manager                                                      |
-| **Brief description** | Creating a menu with a set of dishes                         |
-| **Preconditions**     | The dishes that is to be selected are created and saved      |
-| **Flow of events**    | A manager selects a set of dishes for a menu that is to be available in some days (possibly weekdays). The new menu must be saved with a title. |
-| **Postconditions**    | New menu is created                                          |
-| **Priority**          | High                                                         |
-| **Source**            | United Interviews, Predefined menus for managers             |
-
-![08](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Create%20menu.png?raw=true)
-
-
-
-| Use case name         | Select menu                                                  |
-| --------------------- | ------------------------------------------------------------ |
-| **Primary actor(s)**  | Manager                                                      |
-| **Brief description** | A manager sets available menu for each weekday or for a particular date |
-| **Preconditions**     | The menus are created select a menu for every weekday.       |
-| **Flow of events**    | It is possible for a manager to select a menu for every weekday. For example, a selected menu for Monday will be used automatically every Monday. It is possible to leave some weekdays empty. It is possible to select a menu for a particular date, for example, October 21. If a weekday menu could be used for that day too, particular date menu has higher priority. |
-| **Postconditions**    | The menu is selected                                         |
-| **Priority**          | High                                                         |
-| **Assumptions**       | If all weekdays aren't filled with templates, the app won't work since 00:00 until one of the menus is selected |
-| **Source**            | United Interviews, Predefined menus for managers             |
-
-![09](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Select%20menu.png?raw=true)
-
-
-
-| Use case name                        | Set working hours                                            |
-| ------------------------------------ | ------------------------------------------------------------ |
-| **Primary actor(s)**                 | Manager                                                      |
-| **Brief description**                | A manager configures working hours, during which it's possible to order |
-| **Preconditions**                    | Working hours are not set. Or working hours are about to be changed. |
-| **Flow of events**                   | A manager sets working hours                                 |
-| **Postconditions**                   | Working hours are saved.                                     |
-| **Priority**                         | High                                                         |
-| **Alternative flows and exceptions** | 24 hours open is possible                                    |
-| **Source**                           | United Interviews, Time of order is ready                    |
-
-![10](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Set%20working%20hours.png?raw=true)
-
-| Use case name                        | Open cafe                                                    |
-| ------------------------------------ | ------------------------------------------------------------ |
-| **Primary actor(s)**                 | Manager                                                      |
-| **Brief description**                | Open cafe when you are ready                                 |
-| **Preconditions**                    | Cafe is not opened                                           |
-| **Flow of events**                   | When all required information is filled (dishes, menus, working hours), a manager opens the cafe |
-| **Postconditions**                   | Cafe is opened                                               |
-| **Priority**                         | High                                                         |
-| **Alternative flows and exceptions** | 24 hours open is possible                                    |
-| **Source**                           | United Interviews, Who updates dishes                        |
-
-![11](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Open%20cafe.png)
-
-
-
-| Use case name         | Make Complaint                                               |
-| --------------------- | ------------------------------------------------------------ |
-| **Primary actor(s)**  | Customer                                                     |
-| **Brief description** | When a customer is not satisfied or happy with the order/delivery. |
-| **Preconditions**     | Customer made an order of meal (Dissatisfied)                |
-| **Flow of events**    | Users receives an order he/she is not satisfied with. User goes to the list (history) of his/her orders made, then choices the order in question and clicks the complaint button. A textbox is filled and submitted, the message is sent to the manager. |
-| **Postconditions**    | Complaint sent to manager                                    |
-| **Priority**          | High                                                         |
-| **Source**            | Interviews, User making complaint                            |
-
-![12](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Complaint%20Use%20Case.png?raw=true)
+| Use case name          | Resolve complaint                                            |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 015                                                          |
+| **Primary actor(s)**   | Manager                                                      |
+| **Brief description**  | When Manager contacted User outside the system, check in the system that the complaint is resolved |
+| **Preconditions**      | User created complaint                                       |
+| **Flow of events**     | 1. Manager selects resolved complaint from the list<br />2. Manager changes it's state to 'Resolved' |
+| **Postconditions**     | Complaint is hidden from both user and manager               |
