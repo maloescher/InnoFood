@@ -30,6 +30,8 @@
 | **Flow of events**     | 1. Administrator enter the administrator panel.<br/>2. Administrator choose the option "Create new cafe". <br/>2. Administrator fill the "new cafe" form. <br/>3. Administrator click on "save data" bottom.<br/>4. A new register is created on the data base. <br/>5. Administrator receive a confirmation message. |
 | **Postconditions**     | A New cafe has been added to the database and is visible from the administrator panel.<br/>A managers has been assigned to the Cafe |
 | **Alternative Flow **  | Administrator does not receive confirmation message (error message). <br/>Administrator must contact IT department. |
+| **Assumptions**        | The Administrator is logged in the system and has the needed rights to perform this action. |
+| **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
 
 ### Edit cafe
 
@@ -41,12 +43,12 @@
 | **Brief description**           | Administrator wants to update information about a cafe.      |
 | **Preconditions**               | The cafe already exist. <br/>The Administrator has the right for making the changes. |
 | **Flow of events**              | 1. Administrator choose enter administration panel<br/>2. Administrator click on the edit button of the cafe to edit <br/>3. Administrator makes the modifications needed<br/>4. Administrator click on "Save changes" button.<br/>5. System display a confirmation message.<br/>6. System perform update action in the DB.<br/>7. System display "Successful message". |
-| **Alternative Flow **           | 1. Administrator press cancel on the confirmation message.<br/>2. System must display again the form. <br/>1. Administrator does not receive confirmation message (error message). <br/>2. Administrator must contact IT department. |
 | **Postconditions**              | The information of the cafe has been updated.                |
+| **Alternative Flow **           | 1. Administrator press cancel on the confirmation message.<br/>2. System must display again the form. <br/>1. Administrator does not receive confirmation message (error message). <br/>2. Administraror must contact IT department. |
+| **Assumptions**        		  | The Administrator is logged in the system and has the needed rights to perform this action. |
 | **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
 
 ### Delete cafe
-
 
 | Use case name          | Delete Cafe                                                  |
 | ---------------------- | ------------------------------------------------------------ |
@@ -58,6 +60,7 @@
 | **Postconditions**     | The cafe has been soft deleted.                              |
 | **Alternative Flow**   | Administrator does not receive confirmation message (error message). <br/>Administrator must contact IT department. |
 | **Assumptions**        | The Administrator is logged in the system and has the needed rights to perform this action. |
+| **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
 
 ### Create manager
 
@@ -69,9 +72,10 @@
 | **Brief description**  | Administrator creates a new manager, and sets up all parameters for it. |
 | **Preconditions**      | -                                                            |
 | **Flow of events**     | 1. Administrator enter the administrator panel.<br/>2. Administrator choose the option "Create new administrator". <br/>2. Administrator fill the "new administrator" form. <br/>3. Administrator click on "save data" bottom.<br/>4. A new register is created on the data base. <br/>5. Administrator receive a confirmation message. |
+| **Alternative Flow **  | Administrator does not receive confirmation message (error message). <br/>Administraror must contact IT department. |
 | **Postconditions**     | A New administrator has been added to the database and is visible from the administrator panel.<br/> |
-| **Alternative Flow **  | Administrator does not receive confirmation message (error message). <br/>Administrator must contact IT department. |
 | **Assumptions**        | The Administrator is logged in the system and has the needed rights to perform this action. |
+| **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
 
 ### Edit manager
 
@@ -85,6 +89,7 @@
 | **Flow of events**              | 1. Administrator choose enter administration panel<br/>2. Administrator click on the edit button of the Manager to edit <br/>3. Administrator makes the modifications needed<br/>4. Administrator click on "Save changes" button.<br/>5. System display a confirmation message.<br/>6. System perform update action in the DB.<br/>7. System display "Successful message". |
 | **Alternative Flow **           | 1. Administrator press cancel on the confirmation message.<br/>2. System must display again the form. <br/>1. Administrator does not receive confirmation message (error message). <br/>2. Administrator must contact IT department. |
 | **Postconditions**              | The information of the Manager has been updated.             |
+| **Assumptions**                 | The Administrator is logged in the system and has the needed rights to perform this action. |
 | **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
 
 ### Delete manager
@@ -97,10 +102,11 @@
 | **Secondary actors(s)** | Manager, Database                                            |
 | **Brief description**   | Administrator wants to delete a Manager.                     |
 | **Preconditions**       | The Manager already exist. <br/>The Administrator has the right for making the changes. |
-| **Flow of events**      | 1. Administrator choose enter administration panel<br/>2. Administrator click on the delete button of the Manager to delete<br/>3. System display a confirmation message<br/>4. System perform soft delete in the DB.<br/>5. System display "Successful message". |
+| **Flow of events**      | 1. Administrator choose enter administration panel<br/>2. Administrator click on the delete buttom of the Manager to delete<br/>3. System display a confirmation message<br/>4. System perform soft delete in the DB.<br/>5. System display "Sucessfull message". |
+| **Alternative Flow**    | Administration does not receive confirmation message (error message). <br/>Administrator must contact IT department. |
 | **Postconditions**      | The Manager has been soft deleted.                           |
-| **Alternative Flow**    | Administrator does not receive confirmation message (error message). <br/>Administrator must contact IT department. |
 | **Assumptions**         | The Administrator is logged in the system and has the needed rights to perform this action. |
+| **Non-behavioral requirements** | Changes must be visible for the administrator without having to refresh the page. |
 
 ### Create order
 
@@ -112,6 +118,7 @@
 | **Preconditions**      | The meals/dishes to be ordered are available                 |
 | **Flow of events**     | 1. User selects the desired option from menu<br />2. User enters his location<br />3. User presses the submit button |
 | **Postconditions**     | Order is completed                                           |
+
 
 ### Delete order
 
