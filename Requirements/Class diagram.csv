@@ -1,0 +1,64 @@
+Id,Name,Shape Library,Page ID,Contained By,Group,Line Source,Line Destination,Source Arrow,Destination Arrow,Text Area 1,Text Area 2,Text Area 3
+1,Page,,,,,,,,,Page 1,,
+2,Class,UML,1,,,,,,,User,"- id: int
+- name: string
+- password: string
+- email: string
+- visible: boolean","# set_password(): void
++ get_password(): string
+# set_name(): void
++ get_name(): string
+# set_email(): void
++ get_email(): string
++ login(): void"
+3,Class,UML,1,,,,,,,Admin,,"+ create_cafe() : void
++ create_manager(): void"
+4,Class,UML,1,,,,,,,Manager,- ssigned_cafe: Cafe,"# set_cafe(): void
++ get_cafe(): Cafe
+# delete_manager(): void"
+5,Class,UML,1,,,,,,,Customer,"- address: string
++ phone_number: string","+ create_order(): void
++ register(): void"
+6,Class,UML,1,,,,,,,Order,"- destination: string
+- manager: Manager
+- confirmed: boolean
+- customer: Customer
+- parameter: OrderDetails
+- visible: boolean","+ delete_order(): void
++ cancel_order(): void
++ create_complaint(): void
++ confirm_order(): void"
+7,Class,UML,1,,,,,,,Menu,"- id: int
+- cafe: Cafe
+- visible: boolean",+ create_dish(): void
+8,Class,UML,1,,,,,,,Cafe,"- id: int
+- name: string
+- location: string
+- manager: Manager
+- visible: boolean",+ delete_cafe(): void
+9,Class,UML,1,,,,,,,Complaint,"- id: int
+- description: string
+- order: Order
+- manager: Manager
+- complaint_resolved: boolean
+- visible: boolean
+",+ resolve(): void
+10,Class,UML,1,,,,,,,Dish,"- id: int
+- name: string
+- price: double
+- visible: boolean",+ edit_menu(): void
+11,Class,UML,1,,,,,,,OrderDetail,# dishes: Dish,+ get_all_dishes(): Dish[]
+12,Line,,1,,,2,5,Generalization,None,,,
+13,Line,,1,,,8,7,Aggregation,None,,,
+14,Line,,1,,,7,10,Aggregation,None,,,
+15,Line,,1,,,10,11,None,None,1..*,1,
+16,Line,,1,,,11,6,None,Arrow,,,
+17,Line,,1,,,6,5,None,None,0..*,1,
+18,Line,,1,,,2,3,Generalization,None,,,
+19,Line,,1,,,2,4,Generalization,None,,,
+20,Line,,1,,,6,4,None,None,0..*,1,
+21,Line,,1,,,6,11,Composition,None,,,
+22,Line,,1,,,3,4,None,None,,,
+23,Line,,1,,,4,8,None,None,1,1,
+24,Line,,1,,,6,9,None,None,1,0..*,
+25,Line,,1,,,4,9,None,None,1,0..*,
