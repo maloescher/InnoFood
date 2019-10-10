@@ -207,3 +207,32 @@
 | **Preconditions**      | User created complaint                                       |
 | **Flow of events**     | 1. Manager selects resolved complaint from the list<br />2. Manager changes it's state to 'Resolved' |
 | **Postconditions**     | Complaint is hidden from both user and manager               |
+
+### Sing Up
+
+| Use case name          | Sing Up                                                      |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 016                                                          |
+| **Primary actor(s)**   | Customer                                                     |
+| **Brief description**  | Process where a customer create a new account to use the system. |
+| **Preconditions**      | -                                                            |
+| **Flow of events**     | 1. Customer is located in the home page. <br/> 2. Customer clic on "sing up" option <br/> 3. Customer fill the form with all the information required. <br/> 4. Customer click on submit buttom. <br/> 5. Customer reciebe a confirmation message. |
+| **Alternative Flow **  | Customer does not receive confirmation message (error message). <br/> System display "Try again later" screen. |
+| **Postconditions**     | A New Customer has been added to the database and is able to create new orders.<br/> |
+| **Assumptions**        | The customer has a valid email acount. |
+| **Non-behavioral requirements** | Changes must be visible for the customer without having to refresh the page. |
+
+### Sing In
+
+| Use case name          | Sing In                                                      |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 017                                                          |
+| **Primary actor(s)**   | Customer, Administrators, Managers                           |
+| **Brief description**  | Sing in page to enter the system. Screen must be display acoording to user rights |
+| **Preconditions**      | -                                                            |
+| **Flow of events**     | 1. Actor is located in the home page. <br/> 2. Actor clic on "Sing in" option <br/> 3. Actor fill the user and password field <br/> 4. Actor click on "Sing in" butron <br/> <br/> 5. System validate actor credentials <br/> 6. System redirect actor to the home page depending on the actors rights on the system. |
+| **Alternative Flow **  | Invalid credentials. <br/> Error message must be displayed. <br/> Actor has the option to reset the password. |
+| **Postconditions**     | The actor access to the system |
+| **Assumptions**        | - |
+| **Non-behavioral requirements** | Changes must be visible for the actors without having to refresh the page. |
+
