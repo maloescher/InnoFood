@@ -2,14 +2,16 @@
 
 ## **FoodDelivery**
 
+**Project description:** [Link](https://github.com/VASemenov/InnoFood/blob/master/README.md)
+
 Developer: Team 4 
- 
  
 
 Vladimir Solovev
 Vladimir Semenov
 Marvin Lopez
 Valeriia IUrinskaia
+
 
 
 
