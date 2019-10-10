@@ -208,9 +208,9 @@
 | **Flow of events**     | 1. Manager selects resolved complaint from the list<br />2. Manager changes it's state to 'Resolved' |
 | **Postconditions**     | Complaint is hidden from both user and manager               |
 
-### Sing Up
+### Sign Up
 
-| Use case name          | Sing Up                                                      |
+| Use case name          | Sign Up                                                      |
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 016                                                          |
 | **Primary actor(s)**   | Customer                                                     |
@@ -222,9 +222,9 @@
 | **Assumptions**        | The customer has a valid email acount. |
 | **Non-behavioral requirements** | Changes must be visible for the customer without having to refresh the page. |
 
-### Sing In
+### Sign In
 
-| Use case name          | Sing In                                                      |
+| Use case name          | Sign In                                                      |
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 017                                                          |
 | **Primary actor(s)**   | Customer, Administrators, Managers                           |
