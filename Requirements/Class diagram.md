@@ -9,7 +9,7 @@ To make the diagram changes traceable we are adding csv file, that represents th
 
 ## Diagram
 
-![01](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%20I%20diagrams/Class%20diagram.png?raw=true)
+![Diagram](https://github.com/VASemenov/InnoFood/blob/master/Requirements/Iteration%202%20diagrams/Class%20diagram.png?raw=true)
 
 ## Description
 ### Setters and getters
