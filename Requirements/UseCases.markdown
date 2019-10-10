@@ -10,7 +10,7 @@
 | ----------------- | ------------------------------------------------------------ |
 | **Administrator** | Person that is responsible for creating and administrating cafes (assigning managers, changing contact data and info). |
 | **Manager**       | Person, that fills in info about canteen(menu, if canteen is open or closed, etc.) and responses to the orders. |
-| **User**          | Person which orders food.                                    |
+| **Customer**          | Person which orders food.                                    |
 
 ## Use cases
 
@@ -113,10 +113,10 @@
 | Use case name          | Create order                                                 |
 | ---------------------- | :----------------------------------------------------------- |
 | **Unique use case ID** | 007                                                          |
-| **Primary actor(s)**   | User                                                         |
-| **Brief description**  | User makes an order through the application                  |
+| **Primary actor(s)**   | Customer                                                         |
+| **Brief description**  | Customer makes an order through the application                  |
 | **Preconditions**      | The meals/dishes to be ordered are available                 |
-| **Flow of events**     | 1. User selects the desired option from menu<br />2. User enters his location<br />3. User presses the submit button |
+| **Flow of events**     | 1. Customer selects the desired option from menu<br />2. Customer enters his location<br />3. Customer presses the submit button |
 | **Postconditions**     | Order is completed                                           |
 
 
@@ -125,10 +125,10 @@
 | Use case name          | Delete order                                                 |
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 008                                                          |
-| **Primary actor(s)**   | User                                                         |
-| **Brief description**  | Canceling order by user                                      |
+| **Primary actor(s)**   | Customer                                                         |
+| **Brief description**  | Canceling order by Customer                                      |
 | **Preconditions**      | Order is created less than 10 minutes ago                    |
-| **Flow of events**     | 1. User selects his order<br />2. User presses delete button |
+| **Flow of events**     | 1. Customer selects his order<br />2. Customer presses delete button |
 | **Postconditions**     | Order is deleted                                             |
 
 ### Confirm order
@@ -137,8 +137,8 @@
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 009                                                          |
 | **Primary actor(s)**   | Manager                                                      |
-| **Brief description**  | Manager confirms the order created by User                   |
-| **Preconditions**      | Order is created by User                                     |
+| **Brief description**  | Manager confirms the order created by Customer                   |
+| **Preconditions**      | Order is created by Customer                                     |
 | **Flow of events**     | 1. Manager selects the pending order<br />2. Manager presses confirm button |
 | **Postconditions**     | Order is confirmed                                           |
 
@@ -149,7 +149,7 @@
 | **Unique use case ID** | 010                                                          |
 | **Primary actor(s)**   | Manager                                                      |
 | **Brief description**  | Manager declines order                                       |
-| **Preconditions**      | Order is created by User                                     |
+| **Preconditions**      | Order is created by Customer                                     |
 | **Flow of events**     | 1. Manager selects the pending order<br />2. Manager presses decline button |
 | **Postconditions**     | Order is declined and deleted                                |
 
@@ -183,18 +183,18 @@
 | **Primary actor(s)**   | Manager                                                      |
 | **Brief description**  | A manager sets available menu for each week                  |
 | **Preconditions**      | There are entries in Menu table                              |
-| **Flow of events**     | 1. Manager opens the Menu table from his side<br />2. Manger checks all of the check boxes next to entries setting their visibility for the user to True/False |
-| **Postconditions**     | All of the unavailable meals are hidden from the user, all of the available are shown |
+| **Flow of events**     | 1. Manager opens the Menu table from his side<br />2. Manger checks all of the check boxes next to entries setting their visibility for the Customer to True/False |
+| **Postconditions**     | All of the unavailable meals are hidden from the Customer, all of the available are shown |
 
 ### Create complaint
 
 | Use case name          | Create complaint                                             |
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 014                                                          |
-| **Primary actor(s)**   | User                                                         |
-| **Brief description**  | If User is not satisfied or unhappy with the order/delivery, he creates |
+| **Primary actor(s)**   | Customer                                                         |
+| **Brief description**  | If Customer is not satisfied or unhappy with the order/delivery, he creates |
 | **Preconditions**      | Order was confirmed by Manager                               |
-| **Flow of events**     | 1. User selects order from his order history<br />2. User presses 'Complain' button<br />3. User enters description of the problem in the form<br />4. User submits the form to the system |
+| **Flow of events**     | 1. Customer selects order from his order history<br />2. Customer presses 'Complain' button<br />3. Customer enters description of the problem in the form<br />4. Customer submits the form to the system |
 | **Postconditions**     | Complaint is created and stored in the database              |
 
 ### Resolve complaint
@@ -203,7 +203,36 @@
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 015                                                          |
 | **Primary actor(s)**   | Manager                                                      |
-| **Brief description**  | When Manager contacted User outside the system, check in the system that the complaint is resolved |
-| **Preconditions**      | User created complaint                                       |
+| **Brief description**  | When Manager contacted Customer outside the system, check in the system that the complaint is resolved |
+| **Preconditions**      | Customer created complaint                                       |
 | **Flow of events**     | 1. Manager selects resolved complaint from the list<br />2. Manager changes it's state to 'Resolved' |
-| **Postconditions**     | Complaint is hidden from both user and manager               |
+| **Postconditions**     | Complaint is hidden from both Customer and manager               |
+
+### Sign Up
+
+| Use case name          | Sign Up                                                      |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 016                                                          |
+| **Primary actor(s)**   | Customer                                                     |
+| **Brief description**  | Process where a customer create a new account to use the system. |
+| **Preconditions**      | -                                                            |
+| **Flow of events**     | 1. Customer is located in the home page. <br/> 2. Customer clic on "sing up" option <br/> 3. Customer fill the form with all the information required. <br/> 4. Customer click on submit buttom. <br/> 5. Customer reciebe a confirmation message. |
+| **Alternative Flow **  | Customer does not receive confirmation message (error message). <br/> System display "Try again later" screen. |
+| **Postconditions**     | A New Customer has been added to the database and is able to create new orders.<br/> |
+| **Assumptions**        | The customer has a valid email acount. |
+| **Non-behavioral requirements** | Changes must be visible for the customer without having to refresh the page. |
+
+### Sign In
+
+| Use case name          | Sign In                                                      |
+| ---------------------- | ------------------------------------------------------------ |
+| **Unique use case ID** | 017                                                          |
+| **Primary actor(s)**   | Customer, Administrators, Managers                           |
+| **Brief description**  | Sing in page to enter the system. Screen must be display acoording to user rights |
+| **Preconditions**      | -                                                            |
+| **Flow of events**     | 1. Actor is located in the home page. <br/> 2. Actor clic on "Sing in" option <br/> 3. Actor fill the user and password field <br/> 4. Actor click on "Sing in" butron <br/> <br/> 5. System validate actor credentials <br/> 6. System redirect actor to the home page depending on the actors rights on the system. |
+| **Alternative Flow **  | Invalid credentials. <br/> Error message must be displayed. <br/> Actor has the option to reset the password. |
+| **Postconditions**     | The actor access to the system |
+| **Assumptions**        | - |
+| **Non-behavioral requirements** | Changes must be visible for the actors without having to refresh the page. |
+
