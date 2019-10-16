@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfaea287-b3bf-467f-bdca-ad2c710cda6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/innofood/core/templates/customer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/innofood/core/templates/landing.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/innofood/core/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/innofood/core/tests/test_models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/innofood/core/tests/test_urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/innofood/core/tests/test_views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/innofood/db.sqlite3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/innofood/pytest.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/innofood/.idea/innofood.iml" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/innofood/.idea/innofood.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/innofood/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/innofood/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/innofood/core/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/innofood/core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/innofood/core/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/innofood/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/innofood/core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/innofood/innofood/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/innofood/innofood/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/innofood/innofood/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/innofood/innofood/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +12,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="circleci" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1SIR4EryYbKvvx0bzv4QGisH0q3" />
@@ -55,7 +46,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1571248929435</updated>
-      <workItem from="1571248930939" duration="1031000" />
+      <workItem from="1571248930939" duration="1797000" />
     </task>
     <servers />
   </component>
