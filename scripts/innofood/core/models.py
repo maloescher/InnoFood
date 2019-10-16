@@ -1,14 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractBaseUser
 
 """
 Admin class goes to the admin.py because of the Django's architecture
 """
 
 
-class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+class InnoFoodUser(AbstractBaseUser):
+    visible = models.BooleanField(default=True)
+    name = models.TextField(max_length=140)
 
+
+class Customer(InnoFoodUser):
     address = models.TextField(max_length=400)
     phone_number = models.TextField(max_length=12)
 
@@ -16,9 +20,7 @@ class Customer(models.Model):
         pass
 
 
-class Manager(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-
+class Manager(InnoFoodUser):
     # Cafe is in brackets because it's the case when two models reference each other (Manager and Cafe)
     assigned_cafe = models.OneToOneField('Cafe', on_delete=models.CASCADE)
 
@@ -30,10 +32,9 @@ class Manager(models.Model):
 
 
 class Cafe(models.Model):
-    id = models.Index()
     name = models.TextField(max_length=100)
     location = models.TextField(max_length=400)
-    manager = models.OneToOneField(Manager, on_delete=models.CASCADE)
+    # manager = models.OneToOneField(Manager, on_delete=models.CASCADE)
     visible = models.BooleanField(default=True)
 
     def delete_cafe(self):
@@ -41,7 +42,6 @@ class Cafe(models.Model):
 
 
 class Menu(models.Model):
-    id = models.Index()
     cafe = models.OneToOneField(Cafe, on_delete=models.CASCADE)
     visible = models.BooleanField(default=True)
 
@@ -50,7 +50,6 @@ class Menu(models.Model):
 
 
 class Dish(models.Model):
-    id = models.Index()
     name = models.TextField(max_length=100)
     price = models.FloatField(default=0)
     visible = models.BooleanField(default=True)
@@ -88,7 +87,6 @@ class Order(models.Model):
 
 
 class Complaint(models.Model):
-    id = models.Index()
     description = models.TextField(max_length=500)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     manager = models.ForeignKey(Manager, on_delete=models.CASCADE)
