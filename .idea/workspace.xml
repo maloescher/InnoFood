@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfaea287-b3bf-467f-bdca-ad2c710cda6f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Pipfile" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,7 +55,7 @@
       <updated>1571248929435</updated>
       <workItem from="1571248930939" duration="3573000" />
       <workItem from="1571253360618" duration="2108000" />
-      <workItem from="1571255502900" duration="117000" />
+      <workItem from="1571255502900" duration="994000" />
     </task>
     <servers />
   </component>
