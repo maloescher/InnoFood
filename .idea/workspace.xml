@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfaea287-b3bf-467f-bdca-ad2c710cda6f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,6 +26,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/scripts" />
       <recent name="$PROJECT_DIR$/scripts/innofood" />
@@ -54,7 +59,7 @@
       <updated>1571248929435</updated>
       <workItem from="1571248930939" duration="3573000" />
       <workItem from="1571253360618" duration="2108000" />
-      <workItem from="1571255502900" duration="1996000" />
+      <workItem from="1571255502900" duration="2159000" />
     </task>
     <servers />
   </component>
