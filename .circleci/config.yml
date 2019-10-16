@@ -12,8 +12,8 @@ jobs: # A basic unit of work in a run
       - checkout # check out source code to working directory
       - run: sudo chown -R circleci:circleci /usr/local/bin
       - run: sudo chown -R circleci:circleci /usr/local/lib/python3.7/site-packages
-      - restore_cache:  # ensure this step occurs *before* installing dependencies
-          key: deps9-{{ .Branch }}-{{ checksum "scripts/Pipfile.lock" }}
+#      - restore_cache:  # ensure this step occurs *before* installing dependencies
+#          key: deps9-{{ .Branch }}-{{ checksum "scripts/Pipfile.lock" }}
       - run:
           command: |
             pip install pipenv
