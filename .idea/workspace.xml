@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="cfaea287-b3bf-467f-bdca-ad2c710cda6f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/venv/lib/python3.7/site-packages/atomicwrites-1.3.0.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/venv/lib/python3.7/site-packages/atomicwrites-1.3.0.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/venv/lib/python3.7/site-packages/atomicwrites-1.3.0.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/venv/lib/python3.7/site-packages/atomicwrites-1.3.0.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/venv/lib/python3.7/site-packages/atomicwrites-1.3.0.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/venv/lib/python3.7/site-packages/atomicwrites/__init__.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1571248929435</updated>
       <workItem from="1571248930939" duration="3573000" />
-      <workItem from="1571253360618" duration="185000" />
+      <workItem from="1571253360618" duration="453000" />
     </task>
     <servers />
   </component>
