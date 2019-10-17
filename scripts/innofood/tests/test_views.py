@@ -10,7 +10,7 @@ import pytest
 class TestViews:
 
     def test_customer_autherntificated(self):
-        path = 'cafelist'
+        path = 'cafes'
         request = RequestFactory().get(path)
         request.user = mixer.blend('core.Customer')
 
