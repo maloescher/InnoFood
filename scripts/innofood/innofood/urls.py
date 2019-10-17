@@ -19,7 +19,25 @@ import core.views
 
 urlpatterns = [
     path('welcome/', core.views.landing_page, name='landing'),
-    path('cafelist/', core.views.customer_page, name='cafelist'),
+
+    # CUSTOMER PART
+    path('cafes/', core.views.customer_page, name='cafes'),
+    # path('dishes/', ..., name='customer_dishes'),
+    # path('orders/', ..., name='customer_orders'),
+    # path('complaint/', ..., name='customer_new_complaint'),
+    # path('cart/', ..., name='customer_cart'),
+    # path('order/', ..., name='customer_order'),
+    # path('account/', ..., name='customer_account'),
+    # path('complaints/', ..., name='customer_complaints'),
+
+    # MANAGER PART
+    # path('manager/orders/<status:str>', ..., name='manager_orders')
+    # path('manager/complaints/<status:bool>', ..., name='manager_complaints')
+
+    # ADMIN PART
+    # path('admin/cafes/', ..., name='admin_cafes')
+    # path('admin/managers/', ..., name='admin_managers')
+
     path('admin/', admin.site.urls),
 
 ]
