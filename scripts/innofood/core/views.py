@@ -11,3 +11,4 @@ def landing_page(request):
 @login_required
 def customer_page(request):
     return render(request, "customer.html")
+
