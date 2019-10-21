@@ -1,0 +1,9 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+{% for cafe in object_list %}
+<a href='{{cafe.id}}/'>{{cafe.name}}</a>
+{% endfor %}
+
+{% endblock %}

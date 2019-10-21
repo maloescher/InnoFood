@@ -15,18 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import core.views
+import core.views as views
+from django.urls import path, include
 
 urlpatterns = [
-    path('welcome/', core.views.landing_page, name='landing'),
+    path('accounts/', include('django.contrib.auth.urls')),
 
     # CUSTOMER PART
-    path('cafes/', core.views.customer_page, name='cafes'),
-    # path('dishes/', ..., name='customer_dishes'),
+    path('cafes/', views.CafeListView.as_view(), name='cafes'),
+    path('cafes/<int:id>/', views.DishListView.as_view(), name='dishes'),
     # path('orders/', ..., name='customer_orders'),
     # path('complaint/', ..., name='customer_new_complaint'),
-    # path('cart/', ..., name='customer_cart'),
-    # path('order/', ..., name='customer_order'),
+    path('cart/', views.CartListView.as_view(), name='cart'),
+    path('create_order/', views.create_order, name='new_order'),
     # path('account/', ..., name='customer_account'),
     # path('complaints/', ..., name='customer_complaints'),
 

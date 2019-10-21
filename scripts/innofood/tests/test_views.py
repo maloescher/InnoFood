@@ -1,18 +1,20 @@
 from django.test import RequestFactory
 from django.urls import reverse
-from django.contrib.auth.models import User
-from core.views import customer_page
-from mixer.backend.django import mixer
+# from django.contrib.auth.models import User
+# from core.views import *
+# from mixer.backend.django import mixer
 import pytest
+from django.test import Client
+
 
 
 @pytest.mark.django_db
 class TestViews:
 
-    def test_customer_autherntificated(self):
-        path = 'cafes'
-        request = RequestFactory().get(path)
-        request.user = mixer.blend('core.Customer')
+    client = Client()
 
-        response = customer_page(request)
+    def test_customer_autherntificated(self):
+        path = 'cafes/'
+        request = RequestFactory().get(path)
+        response = self.client.get(path)
         assert response.status_code == 200

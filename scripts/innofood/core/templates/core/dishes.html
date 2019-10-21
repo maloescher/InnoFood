@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<form action="/cart/" method="post">
+{% csrf_token %}
+
+{% for dish in object_list %}
+<p><input class="checkbox" type="checkbox" name='dish_cart' id="checkbox_{{ dish.id }}"value="{{ dish.id }}">{{dish.name}}</p>    
+<p></p>
+{% endfor %}
+
+
+
+<input id="send_selected" type="submit" value="Add to cart" />
+</form>
+{% endblock %}
