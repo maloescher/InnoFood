@@ -29,9 +29,9 @@ class DishListView(ListView):
         context = Dish.objects.filter(cafe=self.kwargs['id'])
         return context
 
-    @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):        
-        return super(DishListView, self).dispatch(request, *args, **kwargs)
+    # @method_decorator(login_required)
+    # def dispatch(self, request, *args, **kwargs):        
+    #     return super(DishListView, self).dispatch(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
         return DishListView.as_view()(request)
@@ -54,13 +54,17 @@ class CartListView(ListView):
         # stuff = Dish.filter(id__in=stuff)
         return render(request, self.template_name, {'objects_list': qs})
 
-    @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):        
-        return super(DishListView, self).dispatch(request, *args, **kwargs)
+    # @method_decorator(login_required)
+    # def dispatch(self, request, *args, **kwargs):        
+    #     return super(DishListView, self).dispatch(request, *args, **kwargs)
 
 
 @login_required
 def create_order(request):
     dishes = request.POST.getlist('dish_cart')
-    print('CREATE', dishes)
-    new_order = Order()
+    address = request.POST.get('destination')
+    print('CREATE', dishes, address)
+    # order_det = OrderDetail(dishes=)
+    # new_order = Order(destination=address)
+
+    return render(request, 'core/order_approved.html')

@@ -64,7 +64,7 @@ class Dish(models.Model):
 
 
 class OrderDetail(models.Model):
-    dishes = models.OneToOneField(Dish, on_delete=models.CASCADE)
+    dishes = models.ForeignKey(Dish, on_delete=models.CASCADE)
 
     def get_all_dishes(self):
         pass

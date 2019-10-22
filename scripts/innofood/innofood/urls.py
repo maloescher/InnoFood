@@ -27,7 +27,7 @@ urlpatterns = [
     # path('orders/', ..., name='customer_orders'),
     # path('complaint/', ..., name='customer_new_complaint'),
     path('cart/', views.CartListView.as_view(), name='cart'),
-    path('create_order/', views.create_order, name='new_order'),
+    path('new_order/', views.create_order, name='new_order'),
     # path('account/', ..., name='customer_account'),
     # path('complaints/', ..., name='customer_complaints'),
 
