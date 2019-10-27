@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<form action="/create_order/" method="post">
+    {% csrf_token %}
+
+{% for dish in objects_list %}
+
+<p>{{dish.name}} : Price: {{ dish.price }} RUB</p>
+
+{% endfor %}
+
+<p>Address: <input class="text-input" type="text" name='destination'></p>   
+    
+
+<input id="send_selected" type="submit" value="Add to cart" />
+
+</form>
+{% endblock %}
