@@ -5,6 +5,7 @@ from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
 from .pass_gen import generate
+from django.conf import settings
 
 
 """
@@ -16,13 +17,15 @@ class InnoFoodUser(AbstractBaseUser):
     visible = models.BooleanField(default=True)
     USERNAME_FIELD = 'username'
 
-
 class Customer(InnoFoodUser):
     address = models.CharField(max_length=400)
     phone_number = models.CharField(max_length=12)
 
     def create_order(self):
         pass
+
+
+
 
 
 class Cafe(models.Model):
@@ -72,7 +75,7 @@ class OrderDetail(models.Model):
 class Order(models.Model):
     destination = models.CharField(max_length=400)
     cafe = models.ForeignKey(Cafe, on_delete=models.CASCADE)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    customer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     confirmed = models.BooleanField(default=False)
     parameter = models.OneToOneField(OrderDetail, on_delete=models.CASCADE)
     visible = models.BooleanField(default=True)
