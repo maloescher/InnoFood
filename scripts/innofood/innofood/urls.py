@@ -17,8 +17,13 @@ from django.contrib import admin
 from django.urls import path
 import core.views as views
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
+    path('', views.index, name='index'),
+    path('register/', views.registration_view, name='register'),
+    # path('logout/', views.logout_request, name='logout'),
     path('accounts/', include('django.contrib.auth.urls')),
 
     # CUSTOMER PART
@@ -32,8 +37,7 @@ urlpatterns = [
     # path('complaints/', ..., name='customer_complaints'),
 
     # MANAGER PART
-    path('manager/orders', views.ManagerOrders.as_view(), name='manager_orders'),
-    path('manager/orders/<int:confirmed>', views.ManagerOrdersStatus.as_view(), name='manager_orders_status'),
+    # path('manager/orders/<status:str>', ..., name='manager_orders')
     # path('manager/complaints/<status:bool>', ..., name='manager_complaints')
 
     # ADMIN PART
@@ -43,3 +47,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

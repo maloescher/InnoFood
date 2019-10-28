@@ -1,15 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.admin.views.decorators import staff_member_required
+
+from .forms import RegistrationForm
 from .models import Cafe, Dish, Order, OrderDetail
 from django.views.generic.list import ListView
-
+from django.contrib.auth import login, logout, authenticate
 
 
 class CafeListView(ListView):
     model = Cafe
     paginate_by = 100
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
@@ -58,6 +61,28 @@ class CartListView(ListView):
     #     return super(DishListView, self).dispatch(request, *args, **kwargs)
 
 
+def index(request):
+    return render(request, 'core/landing.html')
+
+
+def registration_view(request):
+    context = {}
+    if request.POST:
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('name')
+            raw_password = form.cleaned_data.get('password')
+            user = authenticate(username=username, passwors= raw_password)
+            login(request, user)
+            return redirect("cafes")
+        else:
+            context['registration_form'] = form
+    else:
+        form = RegistrationForm()
+        context['registration_form'] = form
+    return render(request, 'registration/register.html', context)
+
 @login_required
 def create_order(request):
     dishes = request.POST.getlist('dish_cart')
@@ -66,31 +91,4 @@ def create_order(request):
     # order_det = OrderDetail(dishes=)
     # new_order = Order(destination=address)
 
-
     return render(request, 'core/order_approved.html')
-
-
-# MANAGER PART
-
-class ManagerOrders(ListView):
-
-    model = Order
-    template_name = 'core/managerActiveOrders.html'
-
-    def get_queryset(self):
-        context = Order.objects.filter(visible=True)
-        return context
-
-
-class ManagerOrdersStatus(ListView):
-
-    model = Order
-    template_name = 'core/managerConfirmedOrders.html'
-
-    def get(self, request, confirmed=1, *args, **kwargs):
-        confirmed = False if confirmed == 0 else True
-
-        qs_status = Order.objects.filter(confirmed=confirmed)
-        return render(request, self.template_name, {'qs': qs_status})
-
-    
