@@ -13,8 +13,9 @@ Admin class goes to the admin.py because of the Django's architecture
 """
 
 class InnoFoodUser(AbstractBaseUser):
-    name = models.CharField(max_length=100)
+    username = models.CharField(max_length=100, unique=True)
     visible = models.BooleanField(default=True)
+    USERNAME_FIELD = 'username'
 
 class Customer(InnoFoodUser):
     address = models.CharField(max_length=400)

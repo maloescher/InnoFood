@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.admin.views.decorators import staff_member_required
+
+from .forms import RegistrationForm
 from .models import Cafe, Dish, Order, OrderDetail
 from django.views.generic.list import ListView
-
+from django.contrib.auth import login, logout, authenticate
 
 
 class CafeListView(ListView):
@@ -56,6 +58,28 @@ class CartListView(ListView):
     # @method_decorator(login_required)
     # def dispatch(self, request, *args, **kwargs):        
     #     return super(DishListView, self).dispatch(request, *args, **kwargs)
+
+def index(request):
+    return render(request, 'core/landing.html')
+
+
+def registration_view(request):
+    context = {}
+    if request.POST:
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('name')
+            raw_password = form.cleaned_data.get('password')
+            user = authenticate(username=username, passwors= raw_password)
+            login(request, user)
+            return redirect("cafes")
+        else:
+            context['registration_form'] = form
+    else:
+        form = RegistrationForm()
+        context['registration_form'] = form
+    return render(request, 'registration/register.html', context)
 
 
 @login_required
