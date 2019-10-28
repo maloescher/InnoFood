@@ -27,6 +27,7 @@ wcwidth = "==0.1.7"
 zipp = "==0.6.0"
 
 [dev-packages]
+pylint = "*"
 
 [requires]
 python_version = "3.7"
