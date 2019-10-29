@@ -36,10 +36,20 @@ urlpatterns = [
     # path('complaints/', ..., name='customer_complaints'),
 
     # MANAGER PART
-    path('manager/orders', views.ManagerOrders.as_view(), name='manager_orders'),
-    path('manager/confirmed', views.ManagerOrdersConfirmed.as_view(), name='manager_confirmed'),
-    path('manager/declined', views.ManagerOrdersDeclined.as_view(), name='manager_declined'),
+    path('manager/orders/', views.ManagerOrders.as_view(), name='manager_orders'),
+    path('manager/confirmed/', views.ManagerOrdersConfirmed.as_view(), name='manager_confirmed'),
+    path('manager/declined/', views.ManagerOrdersDeclined.as_view(), name='manager_declined'),
     path('manager/switch_order/<int:id>/<int:status>', views.switch_order, name='switch_order'),
+    path('manager/cafe/', views.ManagerCafe.as_view(), name='manager_cafe'),
+    path('manager/dish/', views.ManagerDish.as_view(), name='manager_dish'),
+    path('manager/update_dish/<int:pk>/', views.ManagerDishUpdate.as_view(), name='manager_dish_update'),
+    path('manager/showhide_dish/<int:id>/', views.showhide_dish, name='showhide_dish'),
+    path('manager/delete_dish/<int:id>/', views.delete_dish, name='delete_dish'),
+
+
+
+
+
 
 
     # path('manager/complaints/<status:bool>', ..., name='manager_complaints')

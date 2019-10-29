@@ -509,7 +509,7 @@ html, body {
 .manager__dish {
     background-color: #444B4E;
     border: 1px solid #444B4E;
-    width: 50%;
+    width: 70%;
     border-radius: 6px;
     padding: 0.5rem;
     margin: 1rem 1rem 1rem 0;
@@ -522,6 +522,15 @@ html, body {
 
 .close {
     color: white;
+}
+
+input, select {
+  background-color: #444B4E;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  margin-left: 15px;
 }
 
 

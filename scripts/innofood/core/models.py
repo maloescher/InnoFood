@@ -58,6 +58,7 @@ class Dish(models.Model):
     name = models.CharField(max_length=100)
     price = models.FloatField(default=0)
     visible = models.BooleanField(default=True)
+    in_menu = models.BooleanField(default=True)
     cafe = models.ForeignKey(Cafe, on_delete=models.CASCADE)
     # manager = models.ForeignKey(Ma)
 

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.admin.views.decorators import staff_member_required
@@ -7,6 +7,7 @@ from .forms import RegistrationForm
 from .models import Cafe, Dish, Order, OrderDetail
 from django.views.generic.list import ListView
 from django.contrib.auth import login, logout, authenticate
+from django.views.generic.edit import CreateView, UpdateView
 
 
 class CafeListView(ListView):
@@ -143,6 +144,25 @@ def switch_order(request, id, status):
     return redirect('manager_orders')
 
 
+def showhide_dish(request, id):
+    dish = Dish.objects.get(id=id)
+    if dish.in_menu:
+        dish.in_menu = False
+    else:
+        dish.in_menu = True
+
+    dish.save()
+    return redirect('manager_cafe')
+
+
+def delete_dish(request, id):
+    dish = Dish.objects.get(id=id)
+    dish.visible = False
+    dish.save()
+
+    return redirect('manager_cafe')
+
+
 class ManagerOrdersConfirmed(ListView):
 
     model = Order
@@ -163,4 +183,29 @@ class ManagerOrdersDeclined(ListView):
         qs = Order.objects.filter(visible=False)
         return qs
 
+
+class ManagerCafe(ListView):
+
+    model = Dish
+    template_name = 'core/cafeMenuEdit.html'
+
+    def get_queryset(self):
+        qs = Dish.objects.filter(visible=True)
+        return qs
+
+
+class ManagerDish(CreateView):
+    model = Dish
+    template_name = 'core/dishManager.html'
+    fields = ['name', 'price', 'cafe']
+    def get_success_url(self):
+            return reverse('manager_cafe')
     
+
+class ManagerDishUpdate(UpdateView):
+    model = Dish
+    template_name = 'core/dishManagerUpdate.html'
+    fields = ['name', 'price', 'in_menu']
+    def get_success_url(self):
+            return reverse('manager_cafe')
+
