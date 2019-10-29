@@ -37,7 +37,9 @@ urlpatterns = [
 
     # MANAGER PART
     path('manager/orders', views.ManagerOrders.as_view(), name='manager_orders'),
-    path('manager/orders/<int:confirmed>', views.ManagerOrdersStatus.as_view(), name='manager_orders_status'),
+    path('manager/confirmed', views.ManagerOrdersConfirmed.as_view(), name='manager_confirmed'),
+    path('manager/declined', views.ManagerOrdersDeclined.as_view(), name='manager_declined'),
+
     # path('manager/complaints/<status:bool>', ..., name='manager_complaints')
 
     # ADMIN PART

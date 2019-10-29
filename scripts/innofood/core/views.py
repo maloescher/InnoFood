@@ -123,20 +123,29 @@ class ManagerOrders(ListView):
     template_name = 'core/managerActiveOrders.html'
 
     def get_queryset(self):
-        context = Order.objects.filter(visible=True)
+        context = Order.objects.filter(visible=True).filter(confirmed=False)
         return context
         
 
 
-class ManagerOrdersStatus(ListView):
+class ManagerOrdersConfirmed(ListView):
 
     model = Order
     template_name = 'core/managerConfirmedOrders.html'
 
-    def get(self, request, confirmed=1, *args, **kwargs):
-        confirmed = False if confirmed == 0 else True
 
-        qs_status = Order.objects.filter(confirmed=confirmed)
-        return render(request, self.template_name, {'qs': qs_status})
+    def get_queryset(self):
+        qs = Order.objects.filter(confirmed=True)
+        return qs
+
+
+class ManagerOrdersDeclined(ListView):
+
+    model = Order
+    template_name = 'core/managerDeclinedOrders.html'
+
+    def get_queryset(self):
+        qs = Order.objects.filter(visible=False)
+        return qs
 
     
