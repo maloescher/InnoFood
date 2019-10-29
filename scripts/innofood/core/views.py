@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect, reverse
+from collections import Counter
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.admin.views.decorators import staff_member_required
 from django.http import HttpResponse
 from .forms import RegistrationForm
-from .models import Cafe, Dish, Order, OrderDetail
+from .models import Cafe, Dish, Order, OrderDetail, Customer
 from django.views.generic.list import ListView
 from django.contrib.auth import login, logout, authenticate
 from django.views.generic.edit import CreateView, UpdateView
+
 
 
 class CafeListView(ListView):
@@ -78,6 +80,9 @@ def index(request):
 
     return redirect('accounts/login')
 
+def user_account_change(request):
+    return render(request, 'core/user_page.html')
+
 
 def registration_view(request):
     context = {}
@@ -105,17 +110,40 @@ def registration_view(request):
 
 @login_required
 def create_order(request):
-    dishes = request.POST.getlist('dish_cart')
+    # dishes = request.POST.getlist('dish_cart')
+    dishesIDs = request.POST.getlist('dish_listed')
     address = request.POST.get('destination')
     print('CREATE', dishes, address)
     # order_det = OrderDetail(dishes=)
     # new_order = Order(destination=address)
     return render(request, 'core/order_approved.html')
 
+    dictOfDishs = Counter()
+    for id in dishesIDs:
+        dictOfDishs[id] += 1
+    dictOfDishs = dict(dictOfDishs)
+    print(dictOfDishs)
+    #zipbObj = zip(dishesIDs, dishes)
+    #dictOfDishs = dict(zipbObj)
+    # Dictionary of item purchases
 
-# def redirect_logout(request):
-#     return redirect('/accounts/login/')
+    for k in dictOfDishs:
+        order_det = OrderDetail()
+        order_det.dishes=Dish.objects.filter(id=k)[0]
+        # order_det.quantity=dictOfDishs[k]
+        order_det.save()
 
+    new_order = Order()
+    new_order.destination=address
+    new_order.cafe=Cafe.objects.filter(id=1)[0]
+    new_order.customer=Customer.objects.filter(id=1)[0]
+    new_order.confirmed=False
+    new_order.visible=True
+    new_order.parameter=OrderDetail.objects.filter(id=2)[0]
+    new_order.save()
+
+
+    return render(request, 'core/order_approved.html')
 
 # MANAGER PART
 class ManagerOrders(ListView):

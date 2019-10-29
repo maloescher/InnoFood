@@ -274,6 +274,9 @@ header.masthead .header-content p{
 }
 
 
+
+
+
 footer {
   padding: 25px 0;
   text-align: center;
@@ -396,7 +399,6 @@ a {
     background-color: #444B4E;
     margin: 1rem;
     padding: 1rem;
-    border-radius: 10px;
 }
 
 .dish-main {
@@ -492,25 +494,9 @@ a {
     margin: 1rem 1rem 1rem 0;
     cursor: pointer;
 }
-/* 
+
 .manager__order:hover {
     border:2px solid #46A04F;
-} */
-
-.fas {
-  color: white;
-}
-
-.far {
-  color: white;
-}
-
-.fas:hover {
-  color: greenyellow;
-}
-
-.far:hover {
-  color: crimson;
 }
 
 .manager__order p{
@@ -529,7 +515,7 @@ a {
 .manager__dish {
     background-color: #444B4E;
     border: 1px solid #444B4E;
-    width: 70%;
+    width: 50%;
     border-radius: 6px;
     padding: 0.5rem;
     margin: 1rem 1rem 1rem 0;
@@ -542,15 +528,6 @@ a {
 
 .close {
     color: white;
-}
-
-input, select {
-  background-color: #444B4E;
-  border: none;
-  border-radius: 10px;
-  padding: 10px;
-  color: white;
-  margin-left: 15px;
 }
 
 
