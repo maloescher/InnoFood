@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.admin.views.decorators import staff_member_required
-
+from django.http import HttpResponse
 from .forms import RegistrationForm
 from .models import Cafe, Dish, Order, OrderDetail
 from django.views.generic.list import ListView
@@ -126,6 +126,21 @@ class ManagerOrders(ListView):
         context = Order.objects.filter(visible=True).filter(confirmed=False)
         return context
         
+
+def switch_order(request, id, status):
+    order = Order.objects.get(id=id)
+    if status == 2:
+        order.confirmed = True
+        order.visible = True
+    elif status == 0:
+        order.confirmed = False
+        order.visible = False
+    elif status == 1:
+        order.confirmed = False
+        order.visible = True
+
+    order.save()
+    return redirect('manager_orders')
 
 
 class ManagerOrdersConfirmed(ListView):

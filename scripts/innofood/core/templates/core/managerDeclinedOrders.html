@@ -47,13 +47,13 @@
 
             {% for order in object_list %}
 
-            <div class="manager__order manager__order_confirmed">
+            <div class="manager__order manager__order_declined">
                 <div class="row justify-content-between">
                     <div class="col-6">
                         <p>Order # {{ order.id }}</p>
                     </div>
                     <div class="col-1">
-                        <i class="fas fa-redo"></i>
+                        <a href="/manager/switch_order/{{order.id}}/1"><i class="fas fa-redo"></i></a>
                     </div>
                 </div>
             </div>

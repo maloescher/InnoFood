@@ -39,6 +39,8 @@ urlpatterns = [
     path('manager/orders', views.ManagerOrders.as_view(), name='manager_orders'),
     path('manager/confirmed', views.ManagerOrdersConfirmed.as_view(), name='manager_confirmed'),
     path('manager/declined', views.ManagerOrdersDeclined.as_view(), name='manager_declined'),
+    path('manager/switch_order/<int:id>/<int:status>', views.switch_order, name='switch_order'),
+
 
     # path('manager/complaints/<status:bool>', ..., name='manager_complaints')
 

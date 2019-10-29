@@ -472,9 +472,25 @@ html, body {
     margin: 1rem 1rem 1rem 0;
     cursor: pointer;
 }
-
+/* 
 .manager__order:hover {
     border:2px solid #46A04F;
+} */
+
+.fas {
+  color: white;
+}
+
+.far {
+  color: white;
+}
+
+.fas:hover {
+  color: greenyellow;
+}
+
+.far:hover {
+  color: crimson;
 }
 
 .manager__order p{
