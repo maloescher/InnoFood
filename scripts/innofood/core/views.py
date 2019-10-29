@@ -17,7 +17,10 @@ class CafeListView(ListView):
         return context
 
     @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):        
+    def dispatch(self, request, *args, **kwargs):   
+        if request.user.is_staff:
+            return redirect('manager_orders')
+
         return super(CafeListView, self).dispatch(request, *args, **kwargs)
 
 
@@ -30,9 +33,9 @@ class DishListView(ListView):
         context = Dish.objects.filter(cafe=self.kwargs['id'])
         return context
 
-    # @method_decorator(login_required)
-    # def dispatch(self, request, *args, **kwargs):        
-    #     return super(DishListView, self).dispatch(request, *args, **kwargs)
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):        
+        return super(DishListView, self).dispatch(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
         return DishListView.as_view()(request)
@@ -55,12 +58,24 @@ class CartListView(ListView):
         # stuff = Dish.filter(id__in=stuff)
         return render(request, self.template_name, {'objects_list': qs})
 
-    # @method_decorator(login_required)
-    # def dispatch(self, request, *args, **kwargs):        
-    #     return super(DishListView, self).dispatch(request, *args, **kwargs)
 
 def index(request):
-    return render(request, 'core/landing.html')
+    # return render(request, 'core/landing.html')
+    if request.user.is_authenticated:
+        print('AUTH')
+        print(request.user.is_staff)
+        if request.user.is_superuser:
+            print('ADMIN')
+            return redirect('/admin/')
+
+        if request.user.is_staff:
+            print('MANAGER')
+            return redirect('manager_orders')
+        
+
+        return redirect('cafes')
+
+    return redirect('accounts/login')
 
 
 def registration_view(request):
@@ -73,7 +88,12 @@ def registration_view(request):
             raw_password = form.cleaned_data.get('password')
             user = authenticate(username=username, passwors= raw_password)
             login(request, user)
-            return redirect("cafes")
+            
+            if request.user.is_staff:
+                print('MANAGER')
+                return redirect('manager_orders')
+
+            # return redirect('index')
         else:
             context['registration_form'] = form
     else:
@@ -89,13 +109,14 @@ def create_order(request):
     print('CREATE', dishes, address)
     # order_det = OrderDetail(dishes=)
     # new_order = Order(destination=address)
-
-
     return render(request, 'core/order_approved.html')
 
 
-# MANAGER PART
+# def redirect_logout(request):
+#     return redirect('/accounts/login/')
 
+
+# MANAGER PART
 class ManagerOrders(ListView):
 
     model = Order
@@ -104,6 +125,7 @@ class ManagerOrders(ListView):
     def get_queryset(self):
         context = Order.objects.filter(visible=True)
         return context
+        
 
 
 class ManagerOrdersStatus(ListView):

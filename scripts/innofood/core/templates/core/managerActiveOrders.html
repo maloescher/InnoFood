@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+          <link href="/static/css/innofood.css" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/d1fb1d9d71.js" crossorigin="anonymous"></script>
     <title>Hello, world!</title>
@@ -41,8 +41,8 @@
 
             <div class="row managerMain__menu">
                 <div class="col-2 managerMain__menu_active">Active</div>
-                <div class="col-2">Confirmed</div>
-                <div class="col-2">Declined</div>
+                <div class="col-2"><a href="manager_confirmed/">Confirmed</a></div>
+                <div class="col-2"><a href="manager_declined">Declined</a></div>
             </div>
             
             {% for order in object_list %}

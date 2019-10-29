@@ -24,7 +24,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('register/', views.registration_view, name='register'),
     path('accounts/', include('django.contrib.auth.urls')),
-
+    # path('redirectlog/', views.redirectlog, name='redirectlog'),
     # CUSTOMER PART
     path('cafes/', views.CafeListView.as_view(), name='cafes'),
     path('cafes/<int:id>/', views.DishListView.as_view(), name='dishes'),
