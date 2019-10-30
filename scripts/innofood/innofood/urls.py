@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('register/', views.registration_view, name='register'),
+    path('register/', views.SignUp.as_view(), name='register'),
     path('accounts/', include('django.contrib.auth.urls')),
     # path('redirectlog/', views.redirectlog, name='redirectlog'),
     # CUSTOMER PART
