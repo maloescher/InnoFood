@@ -81,7 +81,7 @@ input[type="email"]
 {
     font-size:2vh;
     font-weight: 200;
-    color: #fff;
+    color: black;
 }
 
 .label-danger {
@@ -134,7 +134,7 @@ margin: 30px;
   font-size: 3vh;
   color:#fff;
   font-family: 'Roboto', 'sans-serif';
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 1px;
 }
 
@@ -499,6 +499,11 @@ a {
 
 .fas {
   color: white;
+  
+}
+
+.fa, .fas {
+  font-size: 25px !important;
 }
 
 .far {
@@ -545,12 +550,11 @@ a {
 }
 
 input, select {
-  background-color: #444B4E;
+  background-color: whitesmoke;
   border: none;
   border-radius: 10px;
   padding: 10px;
-  color: white;
-  margin-left: 15px;
+  color: black;
 }
 
 

@@ -11,8 +11,15 @@ from django.contrib.auth import login, logout, authenticate
 from django.views.generic.edit import CreateView, UpdateView
 
 
+# === CUSTOMER PART
+
+# VIEWS
 
 class CafeListView(ListView):
+
+    """Displaying list of all cafe accessible for the customer
+    """
+
     model = Cafe
     paginate_by = 100
     def get_context_data(self, **kwargs):
@@ -28,6 +35,10 @@ class CafeListView(ListView):
 
 
 class DishListView(ListView):
+
+    """List all of the available dishes for Customer to order
+    """
+
     model = Dish
     template_name = 'core/dishes.html'
 
@@ -45,6 +56,10 @@ class DishListView(ListView):
 
 
 class CartListView(ListView):
+
+    """Customer's shopping cart
+    """
+
     model = Dish
     template_name = 'core/cart.html'
 
@@ -62,29 +77,19 @@ class CartListView(ListView):
         return render(request, self.template_name, {'objects_list': qs})
 
 
-def index(request):
-    # return render(request, 'core/landing.html')
-    if request.user.is_authenticated:
-        print('AUTH')
-        print(request.user.is_staff)
-        if request.user.is_superuser:
-            print('ADMIN')
-            return redirect('/admin/')
-
-        if request.user.is_staff:
-            print('MANAGER')
-            return redirect('manager_orders')
-        
-
-        return redirect('cafes')
-
-    return redirect('accounts/login')
-
 def user_account_change(request):
+    """
+    DROPPED FROM MVP
+    Customer account manipulation
+    """
     return render(request, 'core/user_page.html')
 
 
 def registration_view(request):
+    """
+    Login and registration page
+    """
+
     context = {}
     if request.POST:
         form = RegistrationForm(request.POST)
@@ -92,14 +97,12 @@ def registration_view(request):
             form.save()
             username = form.cleaned_data.get('name')
             raw_password = form.cleaned_data.get('password')
-            user = authenticate(username=username, passwors= raw_password)
+            user = authenticate(username=username, passwors=raw_password)
             login(request, user)
-            
+
             if request.user.is_staff:
-                print('MANAGER')
                 return redirect('manager_orders')
 
-            # return redirect('index')
         else:
             context['registration_form'] = form
     else:
@@ -108,18 +111,43 @@ def registration_view(request):
     return render(request, 'registration/register.html', context)
 
 
+# CONTROLLERS
+
+def index(request):
+
+    """
+    Handling redirections for logged in users
+    """
+
+    if request.user.is_authenticated:
+
+        # Go to main administrator page
+        if request.user.is_superuser:
+            return redirect('/admin/')
+
+        # Go to main manager page
+        if request.user.is_staff:
+            return redirect('manager_orders')
+
+        # Go to cafe list for customer to start ordering if user is not manager or admin
+        return redirect('cafes')
+
+    # Go here if not authenticated
+    return redirect('login')
+
+
 @login_required
 def create_order(request):
     # dishes = request.POST.getlist('dish_cart')
-    dishesIDs = request.POST.getlist('dish_listed')
+    dishes = request.POST.getlist('dish_listed')
     address = request.POST.get('destination')
     print('CREATE', dishes, address)
     # order_det = OrderDetail(dishes=)
     # new_order = Order(destination=address)
-    return render(request, 'core/order_approved.html')
+    # return render(request, 'core/order_approved.html')
 
     dictOfDishs = Counter()
-    for id in dishesIDs:
+    for id in dishes:
         dictOfDishs[id] += 1
     dictOfDishs = dict(dictOfDishs)
     print(dictOfDishs)
@@ -136,25 +164,88 @@ def create_order(request):
     new_order = Order()
     new_order.destination=address
     new_order.cafe=Cafe.objects.filter(id=1)[0]
-    new_order.customer=Customer.objects.filter(id=1)[0]
+    new_order.customer=request.user
     new_order.confirmed=False
     new_order.visible=True
     new_order.parameter=OrderDetail.objects.filter(id=2)[0]
     new_order.save()
 
-
     return render(request, 'core/order_approved.html')
 
-# MANAGER PART
+
+# ===== MANAGER PART
+
+# VIEWS
+
 class ManagerOrders(ListView):
+
+    """
+    List of all of the active orders that manager can manipulate
+    """
 
     model = Order
     template_name = 'core/managerActiveOrders.html'
 
     def get_queryset(self):
-        context = Order.objects.filter(visible=True).filter(confirmed=False)
-        return context
-        
+        cafe_id = Cafe.objects.get(manager=self.request.user)
+        qs = Order.objects.filter(visible=True).filter(confirmed=False).filter(cafe=cafe_id)
+        return qs
+
+
+class ManagerOrdersConfirmed(ListView):
+
+    """
+    List of all of the confirmed orders
+    """
+
+    model = Order
+    template_name = 'core/managerConfirmedOrders.html'
+
+    def get_queryset(self):
+        cafe_id = Cafe.objects.get(manager=self.request.user)
+        qs = Order.objects.filter(confirmed=True).filter(cafe=cafe_id)
+        return qs
+
+
+class ManagerOrdersDeclined(ListView):
+    model = Order
+    template_name = 'core/managerDeclinedOrders.html'
+
+    def get_queryset(self):
+        cafe_id = Cafe.objects.get(manager=self.request.user)
+        qs = Order.objects.filter(visible=False).filter(cafe=cafe_id)
+        return qs
+
+
+class ManagerCafe(ListView):
+    model = Dish
+    template_name = 'core/cafeMenuEdit.html'
+
+    def get_queryset(self):
+        cafe_id = Cafe.objects.get(manager=self.request.user)
+        qs = Dish.objects.filter(visible=True).filter(cafe=cafe_id)
+        return qs
+
+
+class ManagerDish(CreateView):
+    model = Dish
+    template_name = 'core/dishManager.html'
+    fields = ['name', 'price', 'cafe']
+
+    def get_success_url(self):
+        return reverse('manager_cafe')
+
+
+class ManagerDishUpdate(UpdateView):
+    model = Dish
+    template_name = 'core/dishManagerUpdate.html'
+    fields = ['name', 'price', 'in_menu']
+
+    def get_success_url(self):
+        return reverse('manager_cafe')
+
+
+# CONTROLLERS
 
 def switch_order(request, id, status):
     order = Order.objects.get(id=id)
@@ -190,50 +281,4 @@ def delete_dish(request, id):
 
     return redirect('manager_cafe')
 
-
-class ManagerOrdersConfirmed(ListView):
-
-    model = Order
-    template_name = 'core/managerConfirmedOrders.html'
-
-
-    def get_queryset(self):
-        qs = Order.objects.filter(confirmed=True)
-        return qs
-
-
-class ManagerOrdersDeclined(ListView):
-
-    model = Order
-    template_name = 'core/managerDeclinedOrders.html'
-
-    def get_queryset(self):
-        qs = Order.objects.filter(visible=False)
-        return qs
-
-
-class ManagerCafe(ListView):
-
-    model = Dish
-    template_name = 'core/cafeMenuEdit.html'
-
-    def get_queryset(self):
-        qs = Dish.objects.filter(visible=True)
-        return qs
-
-
-class ManagerDish(CreateView):
-    model = Dish
-    template_name = 'core/dishManager.html'
-    fields = ['name', 'price', 'cafe']
-    def get_success_url(self):
-            return reverse('manager_cafe')
-    
-
-class ManagerDishUpdate(UpdateView):
-    model = Dish
-    template_name = 'core/dishManagerUpdate.html'
-    fields = ['name', 'price', 'in_menu']
-    def get_success_url(self):
-            return reverse('manager_cafe')
 

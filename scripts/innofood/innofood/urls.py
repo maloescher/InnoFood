@@ -46,18 +46,6 @@ urlpatterns = [
     path('manager/showhide_dish/<int:id>/', views.showhide_dish, name='showhide_dish'),
     path('manager/delete_dish/<int:id>/', views.delete_dish, name='delete_dish'),
 
-
-
-
-
-
-
-    # path('manager/complaints/<status:bool>', ..., name='manager_complaints')
-
-    # ADMIN PART
-    # path('admin/cafes/', ..., name='admin_cafes')
-    # path('admin/managers/', ..., name='admin_managers')
-
     path('admin/', admin.site.urls),
 
 ]
