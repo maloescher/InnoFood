@@ -1,0 +1,185 @@
+.container-fluid {
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    background-color: #26262D;
+    color: white;
+}
+
+.header {
+    color: #AAABAB;
+    background-color: #444B4E;
+    padding: 0.5rem;
+}
+
+.header h2 {
+    color: #fff;
+}
+
+.role {
+    color: #46A04F;
+}
+
+.header i {
+    font-size: 2rem;
+    color: white;
+}
+
+.cafe-main {
+    width: 40%;
+    margin-top: 2rem;
+}
+
+.cafe {
+    padding: 0;
+    margin: 1rem;
+    height: 8rem;
+    background-image: url();
+    background-size: cover;
+    cursor: pointer;
+}
+
+.cafe-header {
+    background-color: rgba(10, 10, 10, 0.6);
+}
+
+.cafe:hover {
+    border: 2px solid #46A04F;
+}
+
+.dish {
+    background-color: #444B4E;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.dish-main {
+    margin-top: 2rem;
+}
+
+.dishes-button {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.dishes-button button {
+    width: 20%;
+}
+
+.my-order {
+    margin-top: 2rem;
+    width: 50%;
+}
+
+.order {
+    background-color: #444B4E;
+    margin: 1rem auto;
+    padding: 0.2rem 0.2rem 0.2rem 2rem;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.order:hover {
+    background-color: #46A04F;
+}
+
+.details:hover {
+    cursor: default;
+    background-color: #444B4E;
+}
+
+.noOrder {
+    margin-top: 4rem;
+}
+
+.noOrder button {
+    width: 40%;
+}
+
+.customerAccount {
+    margin-top: 4rem;
+}
+
+.customerAccount button {
+    width: 100%;
+}
+
+.manager-container {
+
+}
+
+.leftMenu {
+    background-color: #353A3D;
+}
+
+.menuOption {
+    background-color: #444B4E;
+    border: 1px solid #444B4E;
+    margin: 1rem;
+    border-radius: 6px;
+}
+
+.menuOption:hover {
+    border: 1px solid #46A04F;
+    cursor: pointer;
+}
+
+.managerMain {
+    padding: 2rem;
+}
+
+.managerMain__menu {
+    color: #444B4E;
+}
+
+.managerMain__menu_active {
+    color: #46A04F;
+    text-decoration: underline;
+}
+
+.manager__order {
+    background-color: #444B4E;
+    border: 1px solid #444B4E;
+    width: 50%;
+    border-radius: 6px;
+    padding: 0.5rem;
+    margin: 1rem 1rem 1rem 0;
+    cursor: pointer;
+}
+
+.manager__order:hover {
+    border:2px solid #46A04F;
+}
+
+.manager__order p{
+    margin: 0;
+    padding: 0;
+}
+
+.manager__order_confirmed {
+    background-color: #46A04F;
+}
+
+.manager__order_declined {
+    background-color: red;
+}
+
+.manager__dish {
+    background-color: #444B4E;
+    border: 1px solid #444B4E;
+    width: 50%;
+    border-radius: 6px;
+    padding: 0.5rem;
+    margin: 1rem 1rem 1rem 0;
+    cursor: pointer;
+}
+
+.modal-content {
+    background-color: #444B4E;
+}
+
+.close {
+    color: white;
+}
