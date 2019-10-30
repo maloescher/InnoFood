@@ -17,6 +17,7 @@ from django.conf import settings
 
 # VIEWS
 
+
 class CafeListView(ListView):
 
     """Displaying list of all cafe accessible for the customer
@@ -24,12 +25,13 @@ class CafeListView(ListView):
 
     model = Cafe
     paginate_by = 100
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
 
     @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):   
+    def dispatch(self, request, *args, **kwargs):
         if request.user.is_staff:
             return redirect('manager_orders')
 
@@ -50,7 +52,7 @@ class DishListView(ListView):
         return context
 
     @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):        
+    def dispatch(self, request, *args, **kwargs):
         return super(DishListView, self).dispatch(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
@@ -69,7 +71,7 @@ class CartListView(ListView):
         print(self.kwargs)
         context = Dish.objects.all()
         return context
-    
+
     def post(self, request, *args, **kwargs):
         ids = request.POST.getlist('dish_cart')
         print(ids)
@@ -124,7 +126,6 @@ class SignUp(CreateView):
 # CONTROLLERS
 
 def index(request):
-
     """
     Handling redirections for logged in users
     """
@@ -193,7 +194,8 @@ class ManagerOrders(ListView):
 
     def get_queryset(self):
         cafe_id = Cafe.objects.get(manager=self.request.user)
-        qs = Order.objects.filter(visible=True).filter(confirmed=False).filter(cafe=cafe_id)
+        qs = Order.objects.filter(visible=True).filter(
+            confirmed=False).filter(cafe=cafe_id)
         return qs
 
 
@@ -238,9 +240,9 @@ class ManagerDish(CreateView):
     fields = ['name', 'price']
 
     def form_valid(self, form):
-         cafe = Cafe.objects.get(manager=self.request.user)
-         form.instance.cafe = cafe
-         return super(ManagerDish, self).form_valid(form)
+        cafe = Cafe.objects.get(manager=self.request.user)
+        form.instance.cafe = cafe
+        return super(ManagerDish, self).form_valid(form)
 
     def get_success_url(self):
         return reverse('manager_cafe')
@@ -290,5 +292,3 @@ def delete_dish(request, id):
     dish.save()
 
     return redirect('manager_cafe')
-
-
