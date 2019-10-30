@@ -126,7 +126,7 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_cdn')
 #AUTH_USER_MODEL = 'core.InnoFoodUser'
-LOGIN_REDIRECT_URL = '/cafes/'
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 APPEND_SLASH=False

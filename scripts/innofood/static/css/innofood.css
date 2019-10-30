@@ -456,6 +456,7 @@ a {
 
 .leftMenu {
     background-color: #353A3D;
+    height: 2000px;
 }
 
 .menuOption {
@@ -558,7 +559,12 @@ input, select {
 }
 
 
+.logo-manager {
+  padding: 10px;
+  margin-left: 25px;
+  margin-top: 10px;
+}
+
 .container-fluid {
     padding: 0;
 }
-

@@ -3,10 +3,10 @@
 {% block main %}
 <h4>Orders</h4>
 
-<div class="row managerMain__menu">
-    <div class="col-2"><a href="/manager/orders/">Active</a></div>
-    <div class="col-2 managerMain__menu_active">Confirmed</div>
-    <div class="col-2"><a href="/manager/declined/">Declined</a></div>
+<div class="row manager Main__menu">
+    <div class="col-4"><a href="/manager/orders/">Active</a></div>
+    <div class="col-4 managerMain__menu_active">Confirmed</div>
+    <div class="col-4"><a href="/manager/declined/">Declined</a></div>
 </div>
 
 {% for order in object_list %}

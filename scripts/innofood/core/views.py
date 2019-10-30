@@ -17,7 +17,6 @@ from django.conf import settings
 
 # VIEWS
 
-
 class CafeListView(ListView):
 
     """Displaying list of all cafe accessible for the customer
@@ -125,6 +124,7 @@ class SignUp(CreateView):
 
 # CONTROLLERS
 
+
 def index(request):
     """
     Handling redirections for logged in users
@@ -194,8 +194,7 @@ class ManagerOrders(ListView):
 
     def get_queryset(self):
         cafe_id = Cafe.objects.get(manager=self.request.user)
-        qs = Order.objects.filter(visible=True).filter(
-            confirmed=False).filter(cafe=cafe_id)
+        qs = Order.objects.filter(visible=True).filter(confirmed=False).filter(cafe=cafe_id)
         return qs
 
 
