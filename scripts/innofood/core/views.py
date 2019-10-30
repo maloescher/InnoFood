@@ -145,16 +145,12 @@ def index(request):
     # Go here if not authenticated
     return redirect('login')
 
-
 @login_required
-def create_order(request):
+def create_order(request, id):
     # dishes = request.POST.getlist('dish_cart')
     dishes = request.POST.getlist('dish_listed')
     address = request.POST.get('destination')
-    print('CREATE', dishes, address)
-    # order_det = OrderDetail(dishes=)
-    # new_order = Order(destination=address)
-    # return render(request, 'core/order_approved.html')
+    idCafe = id 
 
     dictOfDishs = Counter()
     for id in dishes:
@@ -165,23 +161,22 @@ def create_order(request):
     #dictOfDishs = dict(zipbObj)
     # Dictionary of item purchases
 
-    for k in dictOfDishs:
-        order_det = OrderDetail()
-        order_det.dishes=Dish.objects.filter(id=k)[0]
-        # order_det.quantity=dictOfDishs[k]
-        order_det.save()
-
     new_order = Order()
     new_order.destination=address
-    new_order.cafe=Cafe.objects.filter(id=1)[0]
+    new_order.cafe=Cafe.objects.filter(id=idCafe)[0]
     new_order.customer=request.user
     new_order.confirmed=False
     new_order.visible=True
-    new_order.parameter=OrderDetail.objects.filter(id=2)[0]
     new_order.save()
+    
+    for k in dictOfDishs:
+        order_det = OrderDetail()
+        order_det.dishes=Dish.objects.filter(id=k)[0]
+        order_det.quantity=dictOfDishs[k]
+        order_det.order=new_order#Order.objects.filter(id=1)[0]
+        order_det.save()
 
     return render(request, 'core/order_approved.html')
-
 
 # ===== MANAGER PART
 

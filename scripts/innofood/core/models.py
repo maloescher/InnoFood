@@ -71,7 +71,6 @@ class Dish(models.Model):
     def edit_dish(self):
         pass
 
-
 class Order(models.Model):
     destination = models.CharField(max_length=400)
     cafe = models.ForeignKey(Cafe, on_delete=models.CASCADE)
@@ -103,7 +102,6 @@ class OrderDetail(models.Model):
 
     def get_all_dishes(self):
         pass
-
 
 class Complaint(models.Model):
     description = models.TextField(max_length=500)

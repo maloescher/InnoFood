@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('register/', views.SignUp.as_view(), name='register'),
+    path('register/', views.registration_view, name='register'),
     path('accounts/', include('django.contrib.auth.urls')),
     # path('redirectlog/', views.redirectlog, name='redirectlog'),
     # CUSTOMER PART
@@ -31,7 +31,9 @@ urlpatterns = [
     # path('orders/', ..., name='customer_orders'),
     # path('complaint/', ..., name='customer_new_complaint'),
     path('cart/', views.CartListView.as_view(), name='cart'),
-    path('new_order/', views.create_order, name='new_order'),
+
+#    path('new_order/', views.create_order, name='new_order'),
+    path('cafes/<int:id>/new_order/', views.create_order, name='new_order'),
     path('account/', views.user_account_change, name='customer_account'),
     # path('complaints/', ..., name='customer_complaints'),
 
