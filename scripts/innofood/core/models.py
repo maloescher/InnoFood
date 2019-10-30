@@ -12,17 +12,17 @@ from django.conf import settings
 Admin class goes to the admin.py because of the Django's architecture
 """
 
-class InnoFoodUser(AbstractBaseUser):
-    username = models.CharField(max_length=100, unique=True)
-    visible = models.BooleanField(default=True)
-    USERNAME_FIELD = 'username'
+# class InnoFoodUser(AbstractBaseUser):
+#     username = models.CharField(max_length=100, unique=True)
+#     visible = models.BooleanField(default=True)
+#     USERNAME_FIELD = 'username'
 
-class Customer(InnoFoodUser):
-    address = models.CharField(max_length=400)
-    phone_number = models.CharField(max_length=12)
+# class Customer(InnoFoodUser):
+#     address = models.CharField(max_length=400)
+#     phone_number = models.CharField(max_length=12)
 
-    def create_order(self):
-        pass
+#     def create_order(self):
+#         pass
 
 
 

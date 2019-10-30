@@ -5,11 +5,13 @@ from django.utils.decorators import method_decorator
 from django.contrib.admin.views.decorators import staff_member_required
 from django.http import HttpResponse
 from .forms import RegistrationForm
-from .models import Cafe, Dish, Order, OrderDetail, Customer
+from .models import Cafe, Dish, Order, OrderDetail
 from django.views.generic.list import ListView
 from django.contrib.auth import login, logout, authenticate
 from django.views.generic.edit import CreateView, UpdateView
-
+from django.views.generic import CreateView
+from django.contrib.auth.forms import UserCreationForm
+from django.conf import settings
 
 # === CUSTOMER PART
 
@@ -92,7 +94,7 @@ def registration_view(request):
 
     context = {}
     if request.POST:
-        form = RegistrationForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('name')
@@ -100,8 +102,8 @@ def registration_view(request):
             user = authenticate(username=username, passwors=raw_password)
             login(request, user)
 
-            if request.user.is_staff:
-                return redirect('manager_orders')
+            # if request.user.is_staff:
+            #     return redirect('manager_orders')
 
         else:
             context['registration_form'] = form
@@ -109,6 +111,14 @@ def registration_view(request):
         form = RegistrationForm()
         context['registration_form'] = form
     return render(request, 'registration/register.html', context)
+
+
+class SignUp(CreateView):
+    form_class = UserCreationForm
+    # model = settings.AUTH_USER_MODEL
+    success_url = '/cafes/'
+    template_name = 'registration/register.html'
+    # fields = ['name', 'email', 'password']
 
 
 # CONTROLLERS
@@ -230,7 +240,12 @@ class ManagerCafe(ListView):
 class ManagerDish(CreateView):
     model = Dish
     template_name = 'core/dishManager.html'
-    fields = ['name', 'price', 'cafe']
+    fields = ['name', 'price']
+
+    def form_valid(self, form):
+         cafe = Cafe.objects.get(manager=self.request.user)
+         form.instance.cafe = cafe
+         return super(ManagerDish, self).form_valid(form)
 
     def get_success_url(self):
         return reverse('manager_cafe')
