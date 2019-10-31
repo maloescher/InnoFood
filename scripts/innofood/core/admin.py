@@ -1,10 +1,12 @@
 from django.contrib import admin
+from .models import *
+from django.contrib.auth.models import Group
+
+# admin.site.register(Manager)
+admin.site.register(Cafe)
+admin.site.unregister(Group)
 
 
-class Admin(admin.ModelAdmin):
 
-    def create_cafe(self):
-        pass
 
-    def create_manager(self):
-        pass
+
