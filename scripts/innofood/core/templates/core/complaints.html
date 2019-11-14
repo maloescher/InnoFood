@@ -1,0 +1,38 @@
+<!--# this function is connected to use case  014 create complaint-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Complaints</title>
+</head>
+<body>
+<h1>Create Complaint</h1>
+<img src="https://www.superoffice.com/blog/wp-content/uploads/2013/05/how-to-deal-with-customer-complaints-750x400.jpg">
+<br>
+<br>
+{%if isDone %}
+<p><strong>Complaint submitted successfully {{isDone}}</strong></p>
+{% endif %}
+
+<form action="complaintsCreated/" method="post">
+    {% csrf_token %}
+    <label for="order">Order Number </label>
+    <input id="order" type="number" name="order_field" maxlength="6" value="">
+    <br>
+    <label for="title">subject </label>
+    <input id="title" type="text" name="title_field" value="">
+    <br>
+    <label for="complain">Enter your full complain </label>
+    <input id="complain" type="text"  name="complain_field" value="">
+    <br>
+    <label for="contact">Enter your contact </label>
+    <input id="contact" type="text" name="contact_field" value="">
+    <br>
+    <input type="submit" value="submit">
+</form>
+
+
+</body>
+</html>
+
+

@@ -1,11 +1,12 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect, reverse
 from collections import Counter
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.admin.views.decorators import staff_member_required
 from django.http import HttpResponse
-from .forms import RegistrationForm
-from .models import Cafe, Dish, Order, OrderDetail
+from .forms import RegistrationForm, ComplaintForm
+from .models import Cafe, Dish, Order, OrderDetail, Complaint
 from django.views.generic.list import ListView
 from django.contrib.auth import login, logout, authenticate
 from django.views.generic.edit import CreateView, UpdateView
@@ -13,12 +14,41 @@ from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.conf import settings
 
+
 # === CUSTOMER PART
 
 # VIEWS
 
-class CafeListView(ListView):
+def myOrders(request):
+    return HttpResponse("<h1>My Orders<h1>")
 
+
+def complaints(request):
+    return render(request, 'core/complaints.html', None)
+
+
+# this function is connected to use case  014 create complaint
+def complaintsCreated(request):
+    if request.method == "POST":
+        subject = request.POST["title_field"]
+        description = request.POST["complain_field"]
+        orderNumber = request.POST["order_field"]
+        contact = request.POST["contact_field"]
+
+        if description == '' or subject == '' or orderNumber == '' or contact == '':
+            return HttpResponse('<h1>Do not leave any field empty 😡<h1>')
+        complain = Complaint(description=description, complaint_title=subject, complaint_order_number=orderNumber,
+                             complaint_contact=contact)
+        complain.save()
+    return render(request, 'core/complaintsCreated.html', None)
+
+
+# this function is connected to use case  014 create complaint
+def complaintsCompleted(request):
+    return redirect('cafes')
+
+
+class CafeListView(ListView):
     """Displaying list of all cafe accessible for the customer
     """
 
@@ -38,7 +68,6 @@ class CafeListView(ListView):
 
 
 class DishListView(ListView):
-
     """List all of the available dishes for Customer to order
     """
 
@@ -59,7 +88,6 @@ class DishListView(ListView):
 
 
 class CartListView(ListView):
-
     """Customer's shopping cart
     """
 
@@ -146,45 +174,46 @@ def index(request):
     # Go here if not authenticated
     return redirect('login')
 
+
 @login_required
 def create_order(request, id):
     # dishes = request.POST.getlist('dish_cart')
     dishes = request.POST.getlist('dish_listed')
     address = request.POST.get('destination')
-    idCafe = id 
+    idCafe = id
 
     dictOfDishs = Counter()
     for id in dishes:
         dictOfDishs[id] += 1
     dictOfDishs = dict(dictOfDishs)
     print(dictOfDishs)
-    #zipbObj = zip(dishesIDs, dishes)
-    #dictOfDishs = dict(zipbObj)
+    # zipbObj = zip(dishesIDs, dishes)
+    # dictOfDishs = dict(zipbObj)
     # Dictionary of item purchases
 
     new_order = Order()
-    new_order.destination=address
-    new_order.cafe=Cafe.objects.filter(id=idCafe)[0]
-    new_order.customer=request.user
-    new_order.confirmed=False
-    new_order.visible=True
+    new_order.destination = address
+    new_order.cafe = Cafe.objects.filter(id=idCafe)[0]
+    new_order.customer = request.user
+    new_order.confirmed = False
+    new_order.visible = True
     new_order.save()
-    
+
     for k in dictOfDishs:
         order_det = OrderDetail()
-        order_det.dishes=Dish.objects.filter(id=k)[0]
-        order_det.quantity=dictOfDishs[k]
-        order_det.order=new_order#Order.objects.filter(id=1)[0]
+        order_det.dishes = Dish.objects.filter(id=k)[0]
+        order_det.quantity = dictOfDishs[k]
+        order_det.order = new_order  # Order.objects.filter(id=1)[0]
         order_det.save()
 
     return render(request, 'core/order_approved.html')
+
 
 # ===== MANAGER PART
 
 # VIEWS
 
 class ManagerOrders(ListView):
-
     """
     List of all of the active orders that manager can manipulate
     """
@@ -199,7 +228,6 @@ class ManagerOrders(ListView):
 
 
 class ManagerOrdersConfirmed(ListView):
-
     """
     List of all of the confirmed orders
     """

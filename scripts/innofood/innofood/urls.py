@@ -28,14 +28,16 @@ urlpatterns = [
     # CUSTOMER PART
     path('cafes/', views.CafeListView.as_view(), name='cafes'),
     path('cafes/<int:id>/', views.DishListView.as_view(), name='dishes'),
-    # path('orders/', ..., name='customer_orders'),
+    path('orders/', views.myOrders, name='customer_orders'),
     # path('complaint/', ..., name='customer_new_complaint'),
     path('cart/', views.CartListView.as_view(), name='cart'),
 
-#    path('new_order/', views.create_order, name='new_order'),
+    #    path('new_order/', views.create_order, name='new_order'),
     path('cafes/<int:id>/new_order/', views.create_order, name='new_order'),
     path('account/', views.user_account_change, name='customer_account'),
-    # path('complaints/', ..., name='customer_complaints'),
+    path('complaints/', views.complaints, name='customer_complaints'),
+    path('complaints/complaintsCreated/', views.complaintsCreated, name='customer_complaints_created'),
+    path('complaints/complaintsCreated/complaintsCompleted/', views.complaintsCompleted, name='complaintsCompleted'),
 
     # MANAGER PART
     path('manager/orders/', views.ManagerOrders.as_view(), name='manager_orders'),

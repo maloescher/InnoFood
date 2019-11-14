@@ -7,10 +7,10 @@ from django.contrib.auth.models import (
 from .pass_gen import generate
 from django.conf import settings
 
-
 """
 Admin class goes to the admin.py because of the Django's architecture
 """
+
 
 # class InnoFoodUser(AbstractBaseUser):
 #     username = models.CharField(max_length=100, unique=True)
@@ -25,13 +25,11 @@ Admin class goes to the admin.py because of the Django's architecture
 #         pass
 
 
-
-
-
 class Cafe(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=400)
-    manager = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    manager = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=None, null=True,
+                                   blank=True)
     visible = models.BooleanField(default=True)
 
     def delete_cafe(self):
@@ -48,7 +46,6 @@ class Cafe(models.Model):
 #     visible = models.BooleanField(default=True)
 
 
-
 class Menu(models.Model):
     cafe = models.OneToOneField(Cafe, on_delete=models.CASCADE)
     visible = models.BooleanField(default=True)
@@ -63,6 +60,7 @@ class Dish(models.Model):
     visible = models.BooleanField(default=True)
     in_menu = models.BooleanField(default=True)
     cafe = models.ForeignKey(Cafe, on_delete=models.CASCADE)
+
     # manager = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -70,6 +68,7 @@ class Dish(models.Model):
 
     def edit_dish(self):
         pass
+
 
 class Order(models.Model):
     destination = models.CharField(max_length=400)
@@ -103,10 +102,12 @@ class OrderDetail(models.Model):
     def get_all_dishes(self):
         pass
 
+
 class Complaint(models.Model):
-    description = models.TextField(max_length=500)
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    cafe = models.ForeignKey(Cafe, on_delete=models.CASCADE)
+    description = models.TextField(max_length=500,default=None)
+    complaint_title = models.TextField(max_length=100,default=None)
+    complaint_order_number = models.TextField(max_length=500, default=None)
+    complaint_contact = models.TextField(max_length=500, default=None)
     complaint_resolved = models.BooleanField(default=False)
     visible = models.BooleanField(default=True)
 
