@@ -205,7 +205,7 @@
 | **Primary actor(s)**   | Manager                                                      |
 | **Brief description**  | When Manager contacted Customer outside the system, check in the system that the complaint is resolved |
 | **Preconditions**      | Customer created complaint                                       |
-| **Flow of events**     | 1. Manager selects resolved complaint from the list<br />2. Manager changes it's state to 'Resolved' |
+| **Flow of events**     | 1. Manager see a list of un Resolved complains<br />2. Manager changes it's state to 'Resolved' py pressing on Resolve Button<br />3.Complain will be resolved and disappear from list|
 | **Postconditions**     | Complaint is hidden from both Customer and manager               |
 
 ### Sign Up

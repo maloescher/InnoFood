@@ -41,6 +41,8 @@ urlpatterns = [
 
     # MANAGER PART
     path('manager/orders/', views.ManagerOrders.as_view(), name='manager_orders'),
+    path('manager/complains/', views.managerComplains, name='managerComplains'),
+    path('manager/complainResolved/<int:id>', views.managerComplainsResolve, name='managerComplainsResolve'),
     path('manager/confirmed/', views.ManagerOrdersConfirmed.as_view(), name='manager_confirmed'),
     path('manager/declined/', views.ManagerOrdersDeclined.as_view(), name='manager_declined'),
     path('manager/switch_order/<int:id>/<int:status>', views.switch_order, name='switch_order'),

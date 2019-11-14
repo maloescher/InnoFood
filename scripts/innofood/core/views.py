@@ -23,6 +23,21 @@ def myOrders(request):
     return HttpResponse("<h1>My Orders<h1>")
 
 
+# this function is connected to use case  015 Resolve complaint
+def managerComplainsResolve(request, id):
+    complain = Complaint.objects.get(id=id)
+    complain.complaint_resolved = True
+    complain.save()
+    return redirect('managerComplains')
+
+
+# this function is connected to use case  015 Resolve complaint
+def managerComplains(request):
+    complain_list = Complaint.objects.filter(complaint_resolved=False)
+    return render(request, 'core/managerComplain.html', {'complain_list': complain_list})
+
+
+# this function is connected to use case  014 create complaint
 def complaints(request):
     return render(request, 'core/complaints.html', None)
 
