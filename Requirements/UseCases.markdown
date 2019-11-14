@@ -192,9 +192,9 @@
 | ---------------------- | ------------------------------------------------------------ |
 | **Unique use case ID** | 014                                                          |
 | **Primary actor(s)**   | Customer                                                         |
-| **Brief description**  | If Customer is not satisfied or unhappy with the order/delivery, he creates |
+| **Brief description**  | If Customer is not satisfied, or unhappy with the order/delivery, he creates |
 | **Preconditions**      | Order was confirmed by Manager                               |
-| **Flow of events**     | 1. Customer selects order from his order history<br />2. Customer presses 'Complain' button<br />3. Customer enters description of the problem in the form<br />4. Customer submits the form to the system |
+| **Flow of events**     | 1. Customer selects Complaint from home page<br />2. Customer presses 'Complain' button<br />3. Customer enters description of the problem in the form<br />4. Customer submits the form to the system |
 | **Postconditions**     | Complaint is created and stored in the database              |
 
 ### Resolve complaint
