@@ -12,6 +12,18 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+# to login use following
+# Customer
+# Login: customer
+# Password: customercustomer
+
+# Administrator
+# Login: admin Password: admin
+# Managers
+
+# Login: manager Password: adminadmin
+# Login: manager2 Password: adminadmin
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

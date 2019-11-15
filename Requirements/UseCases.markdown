@@ -194,7 +194,7 @@
 | **Primary actor(s)**   | Customer                                                         |
 | **Brief description**  | If Customer is not satisfied, or unhappy with the order/delivery, he creates |
 | **Preconditions**      | Order was confirmed by Manager                               |
-| **Flow of events**     | 1. Customer selects Complaint from home page<br />2. Customer presses 'Complain' button<br />3. Customer enters description of the problem in the form<br />4. Customer submits the form to the system |
+| **Flow of events**     | 1. Customer presses 'Complain' button from home page<br />2. Customer enters Subject of the problem in the form<br />3. Customer enters description of the problem in the form<br />4. Customer enters his contact of the problem in the form<br />5. Customer submits the form to the system <br />3. Customer press home button |
 | **Postconditions**     | Complaint is created and stored in the database              |
 
 ### Resolve complaint
@@ -205,7 +205,7 @@
 | **Primary actor(s)**   | Manager                                                      |
 | **Brief description**  | When Manager contacted Customer outside the system, check in the system that the complaint is resolved |
 | **Preconditions**      | Customer created complaint                                       |
-| **Flow of events**     | 1. Manager selects resolved complaint from the list<br />2. Manager changes it's state to 'Resolved' |
+| **Flow of events**     | 1. Manager see a list of un Resolved complains<br />2. Manager changes it's state to 'Resolved' py pressing on Resolve Button<br />3.Complain will be resolved and disappear from list|
 | **Postconditions**     | Complaint is hidden from both Customer and manager               |
 
 ### Sign Up

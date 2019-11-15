@@ -1,0 +1,29 @@
+<!--# this function is connected to use case  015 Resolve complaint-->
+{% extends 'core/manager_base.html' %}
+
+{% block main %}
+<h4>Complains</h4>
+
+{% for complain in complain_list %}
+<!-- <div class="manager__order" data-toggle="modal" data-target="#orderDetails"> -->
+<div class="manager__order">
+    <div class="row justify-content-between">
+        <div class="col-10">
+            <p><strong>{{complain.complaint_title}}</strong></p>
+            <br>
+        </div>
+        <div class="col-10">
+            <p>{{complain.description}}</p>
+            <br>
+        </div>
+        <div class="col-4">
+            <a href="/manager/complainResolved/{{complain.id}}"><i class="fas fa-check"></i>RESOLVE</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
+
+
+
