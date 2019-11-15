@@ -34,6 +34,7 @@ urlpatterns = [
 
     #    path('new_order/', views.create_order, name='new_order'),
     path('cafes/<int:id>/new_order/', views.create_order, name='new_order'),
+    path('orders/deleteOrder/<int:id>', views.deleteOrder, name='deleteOrder'),
     path('account/', views.user_account_change, name='customer_account'),
     path('complaints/', views.complaints, name='customer_complaints'),
     path('complaints/complaintsCreated/', views.complaintsCreated, name='customer_complaints_created'),

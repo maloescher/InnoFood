@@ -1,3 +1,5 @@
+from logging import log
+
 from django.contrib import messages
 from django.shortcuts import render, redirect, reverse
 from collections import Counter
@@ -19,8 +21,51 @@ from django.conf import settings
 
 # VIEWS
 
+@login_required
+def create_order(request, id):
+    # dishes = request.POST.getlist('dish_cart')
+    dishes = request.POST.getlist('dish_listed')
+    address = request.POST.get('destination')
+    idCafe = id
+
+    dictOfDishs = Counter()
+    for id in dishes:
+        dictOfDishs[id] += 1
+    dictOfDishs = dict(dictOfDishs)
+    print(dictOfDishs)
+    # zipbObj = zip(dishesIDs, dishes)
+    # dictOfDishs = dict(zipbObj)
+    # Dictionary of item purchases
+
+    new_order = Order()
+    new_order.destination = address
+    new_order.cafe = Cafe.objects.filter(id=idCafe)[0]
+    new_order.customer = request.user
+    new_order.confirmed = False
+    new_order.visible = True
+    new_order.save()
+
+    for k in dictOfDishs:
+        order_det = OrderDetail()
+        order_det.dishes = Dish.objects.filter(id=k)[0]
+        order_det.quantity = dictOfDishs[k]
+        order_det.order = new_order  # Order.objects.filter(id=1)[0]
+        order_det.save()
+
+    return render(request, 'core/order_approved.html')
+
+
+# this function is connected to use case  015 Resolve complaint
+def deleteOrder(request, id):
+    order = Order.objects.get(id=id)
+    order.visible = False
+    order.save()
+    return redirect('customer_orders')
+
+
 def myOrders(request):
-    return HttpResponse("<h1>My Orders<h1>")
+    order_list = Order.objects.filter(visible=True)
+    return render(request, 'core/myOrders.html', {'order_list': order_list})
 
 
 # this function is connected to use case  015 Resolve complaint
@@ -188,40 +233,6 @@ def index(request):
 
     # Go here if not authenticated
     return redirect('login')
-
-
-@login_required
-def create_order(request, id):
-    # dishes = request.POST.getlist('dish_cart')
-    dishes = request.POST.getlist('dish_listed')
-    address = request.POST.get('destination')
-    idCafe = id
-
-    dictOfDishs = Counter()
-    for id in dishes:
-        dictOfDishs[id] += 1
-    dictOfDishs = dict(dictOfDishs)
-    print(dictOfDishs)
-    # zipbObj = zip(dishesIDs, dishes)
-    # dictOfDishs = dict(zipbObj)
-    # Dictionary of item purchases
-
-    new_order = Order()
-    new_order.destination = address
-    new_order.cafe = Cafe.objects.filter(id=idCafe)[0]
-    new_order.customer = request.user
-    new_order.confirmed = False
-    new_order.visible = True
-    new_order.save()
-
-    for k in dictOfDishs:
-        order_det = OrderDetail()
-        order_det.dishes = Dish.objects.filter(id=k)[0]
-        order_det.quantity = dictOfDishs[k]
-        order_det.order = new_order  # Order.objects.filter(id=1)[0]
-        order_det.save()
-
-    return render(request, 'core/order_approved.html')
 
 
 # ===== MANAGER PART
