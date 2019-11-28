@@ -22,7 +22,6 @@ from django.conf import settings
 # VIEWS
 
 
-
 # this function is connected to use case  015 Resolve complaint
 def deleteOrder(request, id):
     order = Order.objects.get(id=id)
@@ -144,6 +143,8 @@ def user_account_change(request):
     return render(request, 'core/user_page.html')
 
 
+# this function is connected to use case  016 signup
+# this function is connected to use case  017 sign in
 def registration_view(request):
     """
     Login and registration page
@@ -170,6 +171,7 @@ def registration_view(request):
     return render(request, 'registration/register.html', context)
 
 
+# this function is connected to use case  016 Sign up
 class SignUp(CreateView):
     form_class = UserCreationForm
     # model = settings.AUTH_USER_MODEL
@@ -207,6 +209,7 @@ def index(request):
 
 # VIEWS
 
+# this function is connected to use case  007 Create Order
 class ManagerOrders(ListView):
     """
     List of all of the active orders that manager can manipulate
@@ -221,6 +224,7 @@ class ManagerOrders(ListView):
         return qs
 
 
+# this function is connected to use case  009 confirm order
 class ManagerOrdersConfirmed(ListView):
     """
     List of all of the confirmed orders
@@ -235,6 +239,7 @@ class ManagerOrdersConfirmed(ListView):
         return qs
 
 
+# this function is connected to use case  010 Decline order
 class ManagerOrdersDeclined(ListView):
     model = Order
     template_name = 'core/managerDeclinedOrders.html'
@@ -255,6 +260,7 @@ class ManagerCafe(ListView):
         return qs
 
 
+# this function is connected to use case  012 Edit dish
 class ManagerDish(CreateView):
     model = Dish
     template_name = 'core/dishManager.html'
@@ -269,6 +275,7 @@ class ManagerDish(CreateView):
         return reverse('manager_cafe')
 
 
+# this function is connected to use case  012 Edit dish
 class ManagerDishUpdate(UpdateView):
     model = Dish
     template_name = 'core/dishManagerUpdate.html'
@@ -280,6 +287,9 @@ class ManagerDishUpdate(UpdateView):
 
 # CONTROLLERS
 
+# this function is connected to use case  007 Create Order
+# this function is connected to use case  009 confirm Order
+# this function is connected to use case  010 decline Order
 def switch_order(request, id, status):
     order = Order.objects.get(id=id)
     if status == 2:
@@ -295,6 +305,8 @@ def switch_order(request, id, status):
     order.save()
     return redirect('manager_orders')
 
+
+# this function is connected to use case  007 Create Order
 @login_required
 def create_order(request, id):
     # dishes = request.POST.getlist('dish_cart')
@@ -327,7 +339,6 @@ def create_order(request, id):
         order_det.save()
 
     return render(request, 'core/order_approved.html')
-
 
 
 def showhide_dish(request, id):
