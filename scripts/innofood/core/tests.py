@@ -20,6 +20,14 @@ from .views import (index, SignUp,
 from .models import (Cafe, Menu, Dish, Order, OrderDetail, Complaint)
 
 
+# this class related to the following use cases to test
+# use case #016 login
+# use case #017 signup
+# use case #014 create complaint
+# use case #007 create dish
+# use case #011 create order
+# use case #009 confirm order
+# use case #010 decline order
 class TestManagerVews(TestCase):
     def setUp(self):
         self.manager = get_user_model().objects.create_superuser(
@@ -67,6 +75,8 @@ class TestManagerVews(TestCase):
         )
         self.complaint1.save()
 
+    # use case #006
+    # use case #003
     def tearDown(self):
         self.manager.delete()
         self.cafe1.delete()
@@ -76,10 +86,12 @@ class TestManagerVews(TestCase):
         response = self.client.get(reverse('manager_orders'))
         self.assertTrue(response.status_code, 200)
 
+    # use case #014
     def test_manager_managerComplains(self):
         response = self.client.get(reverse('managerComplains'))
         self.assertEqual(response.status_code, 200)
 
+    # use case #015
     def test_manager_managerComplainsResolve(self):
         response = self.client.get(
             reverse('managerComplainsResolve', kwargs={
@@ -87,10 +99,12 @@ class TestManagerVews(TestCase):
             }))
         self.assertEqual(response.status_code, 200)
 
+    # use case #009
     def test_manager_manager_confirmed(self):
         response = self.client.get(reverse('manager_confirmed'))
         self.assertEqual(response.status_code, 200)
 
+    # use case #010
     def test_manager_manager_declined(self):
         response = self.client.get(reverse('manager_declined'))
         self.assertEqual(response.status_code, 200)
@@ -108,6 +122,7 @@ class TestManagerVews(TestCase):
         response = self.client.get(reverse('manager_dish'))
         self.assertEqual(response.status_code, 200)
 
+    # use case #012
     def test_manager_manager_dish_update(self):
         response = self.client.get(reverse('manager_dish_update',
                                            kwargs={'pk': self.dish1.pk}),
@@ -178,11 +193,13 @@ class TestUserView(TestCase):
         response = self.client.get(reverse('cart'))
         self.assertEqual(response.status_code, 200)
 
+    # use case #007
     def test_user_new_order(self):
         response = self.client.get(
             reverse('new_order', kwargs={'id': self.order2.id}))
         self.assertEqual(response.status_code, 200)
 
+    # use case #014
     def test_user_deleteOrder(self):
         response = self.client.get(
             reverse('deleteOrder', kwargs={'id': self.order2.id}))
@@ -192,14 +209,17 @@ class TestUserView(TestCase):
         response = self.client.get(reverse('customer_account'))
         self.assertEqual(response.status_code, 200)
 
+    # use case #014
     def test_user_customer_complaints(self):
         response = self.client.get(reverse('customer_complaints'))
         self.assertEqual(response.status_code, 200)
 
+    # use case #014
     def test_user_customer_complaints_created(self):
         response = self.client.get(reverse('customer_complaints_created'))
         self.assertEqual(response.status_code, 200)
 
+    # use case #014
     def test_user_complaintsCompleted(self):
         response = self.client.get(reverse('complaintsCompleted'))
         self.assertEqual(response.status_code, 200)
@@ -326,6 +346,8 @@ class TestModels(TestCase):
 # TestUrls
 
 
+# use case #016
+# use case #017
 class TestUrls(TestCase):
 
     def test_index_url_resolves(self):
