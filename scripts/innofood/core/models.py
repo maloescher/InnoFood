@@ -25,6 +25,9 @@ Admin class goes to the admin.py because of the Django's architecture
 #         pass
 
 
+# this function is connected to use case  001 create Cafe
+# this function is connected to use case  002 Edi Cafe
+# this function is connected to use case  003 Delete Cafe
 class Cafe(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=400)
@@ -46,6 +49,7 @@ class Cafe(models.Model):
 #     visible = models.BooleanField(default=True)
 
 
+# this function is connected to use case  013 Edit Menu
 class Menu(models.Model):
     cafe = models.OneToOneField(Cafe, on_delete=models.CASCADE)
     visible = models.BooleanField(default=True)
@@ -54,6 +58,8 @@ class Menu(models.Model):
         pass
 
 
+# this function is connected to use case  012 Create Dish
+# this function is connected to use case  013 Edit  Dish
 class Dish(models.Model):
     name = models.CharField(max_length=100)
     price = models.FloatField(default=0)
@@ -70,6 +76,10 @@ class Dish(models.Model):
         pass
 
 
+# this function is connected to use case  007 Create Order
+# this function is connected to use case  008 Delete Order
+# this function is connected to use case  009 Confirm Order
+# this function is connected to use case  010 Decline Order
 class Order(models.Model):
     destination = models.CharField(max_length=400)
     cafe = models.ForeignKey(Cafe, on_delete=models.CASCADE)
@@ -94,6 +104,7 @@ class Order(models.Model):
         pass
 
 
+# this function is connected to use case  007 Create Order
 class OrderDetail(models.Model):
     dishes = models.ForeignKey(Dish, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=0)
@@ -103,6 +114,8 @@ class OrderDetail(models.Model):
         pass
 
 
+# this function is connected to use case  014 Create complaint
+# this function is connected to use case  015 resolve complaint
 class Complaint(models.Model):
     description = models.TextField(max_length=500,default=None)
     complaint_title = models.TextField(max_length=100,default=None)
