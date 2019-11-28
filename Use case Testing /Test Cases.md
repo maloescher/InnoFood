@@ -45,6 +45,7 @@
 | **Date completed:**    | 28 November 2019                                             |               |                |
 ### Variables for TC - Create order
 | **Type**    | **Name**    | **Value** |
+|-------------|:------------|-----------|
 | string      | destination | Innopolis |
 | User object | user        | user1     |
 | bool        | confirmed   | true      |
@@ -85,11 +86,13 @@
 
 ### Variables for TC -  create User
 | **Type** | **Name** | **Value**   |
+|----------|:---------|-------------|
 | string   | usename  | user        |
 | string   | password | password123 |
 | string   | email    | me@me.com   |
 ### Variables for TC -  create Manger
 | **Type** | **Name** | **Value**        |
+|----------|:---------|------------------|
 | string   | username | manager          |
 | string   | password | mangeradmin      |
 | string   | email    | manager@adim.com |
@@ -201,12 +204,14 @@
 
 ### Variables for TC - Create dish
 | **Type**    | **Name** | **Value**    |
+|-------------|:---------|--------------|
 | string      | name     | dish1        |
 | bool        | visible  | true         |
 | Cage object | cafe     | Current cafe |
 
 ### Variables for TC -  create Cafe
 | **Type**       | **Name** | **Value**  |
+|----------------|:---------|------------|
 | string         | name     | name1      |
 | string         | location | loacatoin1 |
 | Manager object | manager  | manager1   |
@@ -251,6 +256,7 @@
 
 ### Variables for TC - Edit dish
 | **Type**    | **Name** | **Value**    |
+|-------------|:---------|--------------|
 | string      | name     | dish1        |
 | Integer     | price    | 250          |
 | bool        | visible  | true         |
@@ -309,6 +315,7 @@
 
 ### Variables for TC - Create complaint
 | **Type** | **Name**               | **Value**    |
+|----------|:-----------------------|--------------|
 | string   | destination            | Innopolis    |
 | string   | complaint_title        | user1        |
 | Integer  | complaint_order_number | 3            |
@@ -379,6 +386,7 @@
 
 ### Variables for TC -  Signup Customer
 | **Type** | **Name** | **Value**        |
+|----------|:---------|------------------|
 | string   | username | test             |
 | string   | password | 12test121        |
 | string   | email    | test@example.com |
@@ -417,6 +425,7 @@
 
 ### Variables for TC -  Sigin Customer
 | **Type** | **Name** | **Value**        |
+|----------|:---------|------------------|
 | string   | username | test             |
 | string   | password | 12test121        |
 | string   | email    | test@example.com |
