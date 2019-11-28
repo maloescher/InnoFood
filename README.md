@@ -30,6 +30,9 @@ $ pip install pipenv
 # install package manager Homebrew
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
 # confirm installation
+
+# install ruby 2.6
+$ brew install ruby@2.6
 $ brew doctor
 # install python3
 $ brew install python3
